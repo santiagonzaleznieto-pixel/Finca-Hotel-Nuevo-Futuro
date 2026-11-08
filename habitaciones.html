@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habitaciones · Finca Hotel Nuevo Futuro</title>
+<meta name="description" content="Habitaciones para parejas, familias y grupos en la Finca Hotel Nuevo Futuro, Circasia, Quindío.">
+<meta property="og:title" content="Habitaciones · Finca Hotel Nuevo Futuro">
+<meta property="og:description" content="Habitaciones para parejas, familias y grupos en la Finca Hotel Nuevo Futuro, Circasia, Quindío.">
+<meta property="og:image" content="/assets/img/fotos/piscina-casa.jpg">
+<meta name="theme-color" content="#1E2B24">
+<link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/movimiento.css">
+<link rel="stylesheet" href="/assets/css/estilos.css">
+</head>
+<body data-pagina="habitaciones">
+<div class="nf-telon" aria-hidden="true"><span>Habitaciones</span></div>
+<div id="nf-cabecera"></div>
+<main id="contenido">
+<section class="hero " aria-labelledby="titulo">
+  <svg class="hero__fondo" aria-hidden="true" viewBox="0 0 1440 300" preserveAspectRatio="none" style="top:auto;height:240px;width:100%"><ellipse class="nf-niebla" cx="520" cy="150" rx="700" ry="40" fill="#E3E8DF"/><g class="nf-deriva"><path d="M-40 200 C 200 140, 380 170, 560 200 C 760 232, 900 130, 1100 120 C 1260 112, 1360 160, 1480 150 L1480 300 L-40 300 Z" fill="#24332A"/></g><path d="M0 260 C 260 220, 520 270, 780 280 C 1040 290, 1240 230, 1440 240 L1440 300 L0 300 Z" fill="#1A261F"/></svg>
+  <div class="contenedor hero__contenido">
+    <div class="hero__principal">
+      <nav class="ruta nf-in" aria-label="Ruta"><a class="nf-lnk" href="/index.html">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Habitaciones</span></nav>
+      <p class="etiqueta nf-in d1" data-cms="habitaciones.etiqueta" data-etiqueta="Texto pequeño sobre el título">Habitaciones</p>
+      <h1 id="titulo"><span class="nf-mask"><span class="linea d1" data-cms="habitaciones.titulo_1" data-etiqueta="Título, línea 1">Habitaciones para</span></span><span class="nf-mask"><span class="linea d2" data-cms="habitaciones.titulo_2" data-etiqueta="Título, línea 2 (en cursiva)"><em>cada forma de viajar</em></span></span></h1>
+    </div>
+    <div class="hero__lado nf-in d3">
+      <p class="lead" data-cms="habitaciones.intro" data-etiqueta="Texto de presentación">Para dos, para la familia o para el grupo entero. Todas con acceso a la piscina, el jacuzzi y las zonas sociales de la finca.</p>
+      
+    </div>
+  </div>
+</section>
+<div class="barra-filtros"><div class="contenedor" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px">
+  <div class="chips" role="group" aria-label="Filtrar habitaciones" id="filtros-habitaciones"></div>
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px"><span class="suave" aria-live="polite" id="conteo-habitaciones"></span><button type="button" class="interruptor" role="switch" aria-checked="false" id="cambio-desayuno"><span aria-hidden="true"></span>Precios con desayuno</button></div>
+</div></div>
+<section class="seccion seccion--neblina" style="padding-top:56px" aria-label="Listado de habitaciones"><div class="contenedor"><div class="rejilla" id="lista-habitaciones"></div></div></section>
+<section class="seccion seccion--papel" aria-labelledby="incluye">
+  <div class="contenedor dos-columnas">
+    <div class="pila"><p class="etiqueta nf-rv">En todas</p><h2 class="titulo nf-rv r2" id="incluye" data-cms="habitaciones.incluye_titulo" data-etiqueta="Título de la lista de incluidos">Lo que viene con cualquier habitación</h2></div>
+    <ul class="lista-lineas nf-rv" data-cms-lista="habitaciones.incluye" data-etiqueta="Lista de incluidos (uno por línea)" data-plantilla="<li><svg aria-hidden='true' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5'><path d='M5 12l5 5 9-10'/></svg>{t}</li>">
+      <li>Piscina y jacuzzi climatizado</li><li>Fogata y kiosco con asador</li><li>Billar, ping-pong y sapo</li><li>Mascotas sin costo adicional</li><li>Wifi</li><li>Parqueadero dentro de la finca</li>
+    </ul>
+  </div>
+</section>
+<section class="seccion--compacta seccion--neblina" aria-label="Horarios"><div class="contenedor"><dl class="cifras" style="padding:56px 0">
+  <div style="border-color:var(--linea)"><dt class="suave">Entrada desde</dt><dd class="titulo-m" data-global="global.hora_entrada">3:00 p. m.</dd></div>
+  <div style="border-color:var(--linea)"><dt class="suave">Salida hasta</dt><dd class="titulo-m" data-global="global.hora_salida">Por definir</dd></div>
+  <div style="border-color:var(--linea)"><dt class="suave">Anticipo para confirmar</dt><dd class="titulo-m" data-global="global.anticipo">Por definir</dd></div>
+  <div style="border-color:var(--linea)"><dt class="suave">Desayuno por persona</dt><dd class="titulo-m" id="precio-desayuno">$12.000</dd></div>
+</dl></div></section>
+</main>
+<div id="nf-pie"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/datos.js"></script>
+<script src="/assets/js/sitio.js"></script>
+<script src="/assets/js/paginas.js"></script>
+</body>
+</html>

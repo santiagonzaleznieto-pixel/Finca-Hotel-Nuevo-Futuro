@@ -1,0 +1,1350 @@
+{
+ "ajustes": {
+  "global.whatsapp": "",
+  "global.mensaje_whatsapp": "Hola, quiero información sobre la Finca Hotel Nuevo Futuro.",
+  "global.telefono": "",
+  "global.correo": "",
+  "global.direccion": "Km 3 vía Armenia–Circasia, frente al Retorno Colillas",
+  "global.maps_url": "https://www.google.com/maps/search/?api=1&query=Finca%20Hotel%20Nuevo%20Futuro%20Circasia",
+  "global.maps_embed": "",
+  "global.instagram": "https://www.instagram.com/fincahotelnuevofuturo",
+  "global.facebook": "",
+  "global.horario": "",
+  "global.hora_entrada": "3:00 p. m.",
+  "global.hora_salida": "Por definir",
+  "global.anticipo": "Por definir",
+  "global.precio_desayuno": "12000",
+  "global.politica_cancelacion": "",
+  "global.rnt": ""
+ },
+ "colecciones": [
+  {
+   "id": "2a0a1712-3114-59c4-a51f-a5922e60f2ad",
+   "tipo": "habitaciones",
+   "orden": 0,
+   "activo": true,
+   "datos": {
+    "nombre": "Colibrí",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama queen",
+    "detalle": "30 m² · vista a la colina",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg",
+     "/assets/img/fotos/jardin-montana.jpg"
+    ],
+    "destacada": true
+   }
+  },
+  {
+   "id": "b6db6594-8272-5c27-8cbe-a6a57cf198e3",
+   "tipo": "habitaciones",
+   "orden": 1,
+   "activo": true,
+   "datos": {
+    "nombre": "Barranquero",
+    "tipo": "familiar",
+    "capacidad": 5,
+    "camas": "Doble y camarote",
+    "detalle": "Para familias",
+    "descripcion": "Pensada para familias: espacio para todos y acceso directo a las zonas sociales de la finca.",
+    "precio": 70000,
+    "modo_precio": "persona",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-familiar.jpg",
+     "/assets/img/fotos/bano.jpg",
+     "/assets/img/fotos/corredor.jpg"
+    ],
+    "destacada": true
+   }
+  },
+  {
+   "id": "5d098715-21e0-585c-bc32-f11ca650c0cb",
+   "tipo": "habitaciones",
+   "orden": 2,
+   "activo": true,
+   "datos": {
+    "nombre": "Guadua",
+    "tipo": "grupo",
+    "capacidad": 8,
+    "camas": "Doble y 3 camarotes",
+    "detalle": "La más amplia",
+    "descripcion": "La habitación más amplia de la finca, ideal para grupos de amigos o familias grandes.",
+    "precio": 70000,
+    "modo_precio": "persona",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-ventana.jpg",
+     "/assets/img/fotos/habitacion-familiar.jpg",
+     "/assets/img/fotos/bano.jpg"
+    ],
+    "destacada": true
+   }
+  },
+  {
+   "id": "17ce879f-151b-5feb-8275-595f032d18c7",
+   "tipo": "habitaciones",
+   "orden": 3,
+   "activo": true,
+   "datos": {
+    "nombre": "Yarumo",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble",
+    "detalle": "Para dos",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "54df374e-d169-532a-ab9c-c3ec7929ee64",
+   "tipo": "habitaciones",
+   "orden": 4,
+   "activo": true,
+   "datos": {
+    "nombre": "Orquídea",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble",
+    "detalle": "Para dos",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "2ea288d0-87ab-5e3d-a890-08ca5a8234c2",
+   "tipo": "habitaciones",
+   "orden": 5,
+   "activo": true,
+   "datos": {
+    "nombre": "Toche",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble",
+    "detalle": "Para dos",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "58fe2445-353e-5497-a08b-31c95aa0aeee",
+   "tipo": "habitaciones",
+   "orden": 6,
+   "activo": true,
+   "datos": {
+    "nombre": "Palma de cera",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama queen",
+    "detalle": "Para dos",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "b5ed1991-4e12-50d3-ba26-cbc14d0ea41c",
+   "tipo": "habitaciones",
+   "orden": 7,
+   "activo": true,
+   "datos": {
+    "nombre": "Mirla",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble",
+    "detalle": "Para dos",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "a7761172-2a4d-5c0e-b5da-d160a9737259",
+   "tipo": "habitaciones",
+   "orden": 8,
+   "activo": true,
+   "datos": {
+    "nombre": "Heliconia",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble",
+    "detalle": "Para dos",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "40796e70-6b3f-5cda-9c35-21362861e1ac",
+   "tipo": "habitaciones",
+   "orden": 9,
+   "activo": true,
+   "datos": {
+    "nombre": "Carriquí",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble",
+    "detalle": "Para dos",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "3e37e3cc-12e9-5136-b2a8-149bffb9ec5e",
+   "tipo": "habitaciones",
+   "orden": 10,
+   "activo": true,
+   "datos": {
+    "nombre": "Guayacán",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble",
+    "detalle": "Para dos",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "e30d629e-f3db-5837-b826-1c41aef16148",
+   "tipo": "habitaciones",
+   "orden": 11,
+   "activo": true,
+   "datos": {
+    "nombre": "Cafeto",
+    "tipo": "familiar",
+    "capacidad": 3,
+    "camas": "Doble y sencilla",
+    "detalle": "Para familias pequeñas",
+    "descripcion": "Pensada para familias: espacio para todos y acceso directo a las zonas sociales de la finca.",
+    "precio": 70000,
+    "modo_precio": "persona",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-ventana.jpg",
+     "/assets/img/fotos/bano.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "6df5b9bd-bb7a-5032-b113-83d3dbbde942",
+   "tipo": "habitaciones",
+   "orden": 12,
+   "activo": true,
+   "datos": {
+    "nombre": "Tucán",
+    "tipo": "familiar",
+    "capacidad": 3,
+    "camas": "Doble y sencilla",
+    "detalle": "Para familias pequeñas",
+    "descripcion": "Pensada para familias: espacio para todos y acceso directo a las zonas sociales de la finca.",
+    "precio": 70000,
+    "modo_precio": "persona",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-ventana.jpg",
+     "/assets/img/fotos/bano.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "d11180f3-eb42-520f-a8e7-2b1c3caf9aa8",
+   "tipo": "habitaciones",
+   "orden": 13,
+   "activo": true,
+   "datos": {
+    "nombre": "Bahareque",
+    "tipo": "familiar",
+    "capacidad": 3,
+    "camas": "Doble y sencilla",
+    "detalle": "Para familias pequeñas",
+    "descripcion": "Pensada para familias: espacio para todos y acceso directo a las zonas sociales de la finca.",
+    "precio": 70000,
+    "modo_precio": "persona",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-ventana.jpg",
+     "/assets/img/fotos/bano.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "0d66a612-1ed1-5dc4-b5bd-02f56f6b4e97",
+   "tipo": "habitaciones",
+   "orden": 14,
+   "activo": true,
+   "datos": {
+    "nombre": "Finca completa",
+    "tipo": "finca",
+    "capacidad": 40,
+    "camas": "14 habitaciones",
+    "detalle": "Hasta 40 personas, en exclusiva",
+    "descripcion": "Las 14 habitaciones y todas las zonas sociales para tu grupo, sin compartir con nadie más.",
+    "precio": 2800000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "14 habitaciones",
+     "Piscina y jacuzzi climatizado",
+     "Kiosco con cocina y asador",
+     "Zona de fogata y juegos"
+    ],
+    "fotos": [
+     "/assets/img/fotos/piscina-casa.jpg",
+     "/assets/img/fotos/casa-cesped.jpg",
+     "/assets/img/fotos/kiosco.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "076878d8-304f-515b-aeb3-b0a22b5978cf",
+   "tipo": "experiencias",
+   "orden": 0,
+   "activo": true,
+   "datos": {
+    "titulo": "Neblina y café",
+    "hora": "6:30",
+    "descripcion": "La montaña amanece cubierta. Café en el corredor mientras la neblina se levanta sobre los cafetales.",
+    "foto": "/assets/img/fotos/corredor.jpg",
+    "destacada": false
+   }
+  },
+  {
+   "id": "0553b1e8-44c3-5281-a061-d3c6dca37515",
+   "tipo": "experiencias",
+   "orden": 1,
+   "activo": true,
+   "datos": {
+    "titulo": "Tarde de piscina",
+    "hora": "10:00",
+    "descripcion": "Agua para los niños y para los grandes, con las montañas de fondo.",
+    "foto": "/assets/img/fotos/piscina-amplia.jpg",
+    "destacada": true
+   }
+  },
+  {
+   "id": "a8a4f9d2-ca26-50c2-ab5e-b14b75e9e00c",
+   "tipo": "experiencias",
+   "orden": 2,
+   "activo": true,
+   "datos": {
+    "titulo": "Asado en el kiosco",
+    "hora": "13:00",
+    "descripcion": "Cocina propia, asador y mesa larga para el grupo.",
+    "foto": "/assets/img/fotos/cocina-asador.jpg",
+    "destacada": false
+   }
+  },
+  {
+   "id": "0b88318a-4d58-5944-a3d2-47e52e547414",
+   "tipo": "experiencias",
+   "orden": 3,
+   "activo": true,
+   "datos": {
+    "titulo": "Jacuzzi climatizado",
+    "hora": "17:00",
+    "descripcion": "Abierto de 5:00 a 10:00 p. m., justo cuando la montaña refresca.",
+    "foto": "/assets/img/fotos/piscina-jacuzzi.jpg",
+    "destacada": true
+   }
+  },
+  {
+   "id": "81f40ae3-08ea-5b45-85a8-659e6ec25551",
+   "tipo": "experiencias",
+   "orden": 4,
+   "activo": true,
+   "datos": {
+    "titulo": "Noche de fogata",
+    "hora": "20:00",
+    "descripcion": "Picnic, historias y cielo de montaña alrededor del fuego.",
+    "foto": "/assets/img/fotos/pergola-fogata.jpg",
+    "destacada": true
+   }
+  },
+  {
+   "id": "e47cb384-e0a1-5e6b-85a1-291b5df44bf2",
+   "tipo": "experiencias",
+   "orden": 5,
+   "activo": true,
+   "datos": {
+    "titulo": "Juegos de siempre",
+    "hora": "",
+    "descripcion": "Billar, ping-pong, sapo y juegos infantiles.",
+    "foto": "/assets/img/fotos/billar.jpg",
+    "destacada": false
+   }
+  },
+  {
+   "id": "32487b10-a605-59eb-953b-60bc87054bc9",
+   "tipo": "planes",
+   "orden": 0,
+   "activo": true,
+   "datos": {
+    "nombre": "Por persona",
+    "precio": 70000,
+    "precio_desayuno": 82000,
+    "unidad": "por persona / noche",
+    "incluye": [
+     "Habitación familiar o de grupo",
+     "Piscina, jacuzzi y juegos",
+     "Kiosco con cocina y asador"
+    ],
+    "destacado": false,
+    "boton": "reservar"
+   }
+  },
+  {
+   "id": "65efd774-6bfc-578e-a7c9-08f7eaf3ea9f",
+   "tipo": "planes",
+   "orden": 1,
+   "activo": true,
+   "datos": {
+    "nombre": "Escapada en pareja",
+    "precio": 200000,
+    "precio_desayuno": 224000,
+    "unidad": "por noche, habitación para dos",
+    "incluye": [
+     "Habitación privada",
+     "Jacuzzi de 5:00 a 10:00 p. m.",
+     "Zonas sociales de la finca"
+    ],
+    "destacado": false,
+    "boton": "reservar"
+   }
+  },
+  {
+   "id": "0b353458-5b28-5502-b4de-70c986c1160b",
+   "tipo": "planes",
+   "orden": 2,
+   "activo": true,
+   "datos": {
+    "nombre": "Finca completa",
+    "precio": 2800000,
+    "precio_desayuno": null,
+    "unidad": "por noche, hasta 40 personas",
+    "incluye": [
+     "Las 14 habitaciones",
+     "Todas las zonas, en exclusiva",
+     "Solo alojamiento"
+    ],
+    "destacado": true,
+    "boton": "eventos"
+   }
+  },
+  {
+   "id": "29f428e4-ccc0-5390-82c2-b9c854c92d25",
+   "tipo": "planes",
+   "orden": 3,
+   "activo": true,
+   "datos": {
+    "nombre": "Pasadía",
+    "precio": 22000,
+    "precio_desayuno": null,
+    "unidad": "por persona + seguro",
+    "incluye": [
+     "De 9:00 a. m. a 5:00 p. m.",
+     "Mínimo 10 personas",
+     "Uso de zonas sociales"
+    ],
+    "destacado": false,
+    "boton": "eventos"
+   }
+  },
+  {
+   "id": "e854c7f7-bd4d-5411-bd71-2a51c1d7ff7e",
+   "tipo": "temporadas",
+   "orden": 0,
+   "activo": true,
+   "datos": {
+    "nombre": "Regular",
+    "fechas": "Resto del año",
+    "persona": "$70.000",
+    "pareja": "$200.000",
+    "finca": "$2.800.000"
+   }
+  },
+  {
+   "id": "5d6974c5-f47e-54ed-8dd0-fd22a5a96971",
+   "tipo": "temporadas",
+   "orden": 1,
+   "activo": true,
+   "datos": {
+    "nombre": "Alta",
+    "fechas": "Diciembre, enero, Semana Santa y mitad de año",
+    "persona": "Por definir",
+    "pareja": "Por definir",
+    "finca": "Por definir"
+   }
+  },
+  {
+   "id": "c1eb805d-5632-530a-bc0a-cf405a309642",
+   "tipo": "temporadas",
+   "orden": 2,
+   "activo": true,
+   "datos": {
+    "nombre": "Puentes",
+    "fechas": "Fines de semana con festivo",
+    "persona": "Por definir",
+    "pareja": "Por definir",
+    "finca": "Por definir"
+   }
+  },
+  {
+   "id": "19658fec-ff03-5cbd-8faa-5ac490b6883e",
+   "tipo": "eventos",
+   "orden": 0,
+   "activo": true,
+   "datos": {
+    "titulo": "Cumpleaños",
+    "descripcion": "Fogata, asado y torta en el kiosco",
+    "foto": "/assets/img/fotos/ig-mesa-postres.jpg"
+   }
+  },
+  {
+   "id": "ed0c08fb-84ab-58d0-a4ea-e63e0d229ec7",
+   "tipo": "eventos",
+   "orden": 1,
+   "activo": true,
+   "datos": {
+    "titulo": "Aniversarios",
+    "descripcion": "Cena para dos o para toda la familia",
+    "foto": "/assets/img/fotos/ig-decoracion.jpg"
+   }
+  },
+  {
+   "id": "7713139b-9944-5199-aa7f-98191e7762d8",
+   "tipo": "eventos",
+   "orden": 2,
+   "activo": true,
+   "datos": {
+    "titulo": "Grados",
+    "descripcion": "El fin de semana para celebrar el logro",
+    "foto": "/assets/img/fotos/ig-jardin-noche.jpg"
+   }
+  },
+  {
+   "id": "fa219030-60ba-5315-886e-8c6ba1648de6",
+   "tipo": "eventos",
+   "orden": 3,
+   "activo": true,
+   "datos": {
+    "titulo": "Integraciones de empresa",
+    "descripcion": "Día de piscina, juegos y almuerzo",
+    "foto": "/assets/img/fotos/salon-kiosco.jpg"
+   }
+  },
+  {
+   "id": "53b3b7d3-c496-556c-b20a-08c37229fe5c",
+   "tipo": "eventos",
+   "orden": 4,
+   "activo": true,
+   "datos": {
+    "titulo": "Reuniones familiares",
+    "descripcion": "Las 14 habitaciones para la familia entera",
+    "foto": "/assets/img/fotos/terraza-lounge.jpg"
+   }
+  },
+  {
+   "id": "927b3522-a859-518d-a19d-9c9bda8ebba1",
+   "tipo": "eventos",
+   "orden": 5,
+   "activo": true,
+   "datos": {
+    "titulo": "Bodas",
+    "descripcion": "Ceremonia en el jardín y fiesta en el salón",
+    "foto": "/assets/img/fotos/ig-boda-candelabro.jpg"
+   }
+  },
+  {
+   "id": "8c1bd6b4-b29a-51c8-9b11-2d99c712ee9e",
+   "tipo": "espacios",
+   "orden": 0,
+   "activo": true,
+   "datos": {
+    "nombre": "Kiosco con cocina",
+    "detalle": "Aforo por confirmar"
+   }
+  },
+  {
+   "id": "39f98a43-9d90-5398-952f-6c61f5cfcedf",
+   "tipo": "espacios",
+   "orden": 1,
+   "activo": true,
+   "datos": {
+    "nombre": "Salón del kiosco",
+    "detalle": "Aforo por confirmar"
+   }
+  },
+  {
+   "id": "3661a70d-a9b3-5b14-84fc-40048031741e",
+   "tipo": "espacios",
+   "orden": 2,
+   "activo": true,
+   "datos": {
+    "nombre": "Zona de piscina",
+    "detalle": "Ideal para pasadías"
+   }
+  },
+  {
+   "id": "fd2223fb-f587-531d-b474-b7569f48a73b",
+   "tipo": "espacios",
+   "orden": 3,
+   "activo": true,
+   "datos": {
+    "nombre": "Zona de fogata",
+    "detalle": "Para cerrar la noche"
+   }
+  },
+  {
+   "id": "3ea8e02f-1a20-58c4-af41-13cad65c003e",
+   "tipo": "instalaciones",
+   "orden": 0,
+   "activo": true,
+   "datos": {
+    "nombre": "Piscina",
+    "descripcion": "Con zona para niños y vista a las montañas."
+   }
+  },
+  {
+   "id": "691b1adc-0061-5040-82b9-55ecbe52317b",
+   "tipo": "instalaciones",
+   "orden": 1,
+   "activo": true,
+   "datos": {
+    "nombre": "Jacuzzi climatizado",
+    "descripcion": "Abierto de 5:00 a 10:00 p. m. todos los días."
+   }
+  },
+  {
+   "id": "0beb7f5d-7bda-54a9-a738-b82747e370ac",
+   "tipo": "instalaciones",
+   "orden": 2,
+   "activo": true,
+   "datos": {
+    "nombre": "Kiosco con cocina",
+    "descripcion": "Asador, cocina propia y mesa larga para el grupo."
+   }
+  },
+  {
+   "id": "b914c4de-b857-53a2-a962-cfca974818de",
+   "tipo": "instalaciones",
+   "orden": 3,
+   "activo": true,
+   "datos": {
+    "nombre": "Zona de fogata",
+    "descripcion": "Pérgola con brasero para cerrar el día."
+   }
+  },
+  {
+   "id": "595a0157-89e9-517a-9692-7ccded62f1c5",
+   "tipo": "instalaciones",
+   "orden": 4,
+   "activo": true,
+   "datos": {
+    "nombre": "Billar y ping-pong",
+    "descripcion": "La sala de juegos para los torneos del grupo."
+   }
+  },
+  {
+   "id": "782096db-18c6-54b0-9144-6992034ca80f",
+   "tipo": "instalaciones",
+   "orden": 5,
+   "activo": true,
+   "datos": {
+    "nombre": "Sapo y juegos infantiles",
+    "descripcion": "El juego de siempre y espacio para los pequeños."
+   }
+  },
+  {
+   "id": "f54318a8-c797-5f08-95eb-dc5a7eef1eab",
+   "tipo": "instalaciones",
+   "orden": 6,
+   "activo": true,
+   "datos": {
+    "nombre": "Mascotas bienvenidas",
+    "descripcion": "Perros y gatos, sin costo adicional."
+   }
+  },
+  {
+   "id": "b8889258-cbf5-51e4-b13c-fb5cedc3c6c3",
+   "tipo": "instalaciones",
+   "orden": 7,
+   "activo": true,
+   "datos": {
+    "nombre": "Parqueadero",
+    "descripcion": "Dentro de la finca, sin costo para huéspedes."
+   }
+  },
+  {
+   "id": "f67fa7c7-9589-5080-abda-35d43540ceba",
+   "tipo": "normas",
+   "orden": 0,
+   "activo": true,
+   "datos": {
+    "titulo": "Horario de silencio",
+    "detalle": "Por definir"
+   }
+  },
+  {
+   "id": "5923ed71-3088-589a-8ff1-e96255d21665",
+   "tipo": "normas",
+   "orden": 1,
+   "activo": true,
+   "datos": {
+    "titulo": "Piscina",
+    "detalle": "Niños siempre con un adulto"
+   }
+  },
+  {
+   "id": "32e8d0ab-3a76-5739-9fd8-8cc50707e072",
+   "tipo": "normas",
+   "orden": 2,
+   "activo": true,
+   "datos": {
+    "titulo": "Mascotas",
+    "detalle": "Bienvenidas; avísanos al reservar"
+   }
+  },
+  {
+   "id": "6aadb456-43e3-54cd-bb7b-6e9dc1061d49",
+   "tipo": "normas",
+   "orden": 3,
+   "activo": true,
+   "datos": {
+    "titulo": "Visitantes",
+    "detalle": "Por definir"
+   }
+  },
+  {
+   "id": "4657fcc0-bfd0-5717-832e-7b3a73e26925",
+   "tipo": "normas",
+   "orden": 4,
+   "activo": true,
+   "datos": {
+    "titulo": "Menores de edad",
+    "detalle": "Con documento y acompañados por sus padres"
+   }
+  },
+  {
+   "id": "f5c9ec83-b045-5904-a951-7ba991b6d016",
+   "tipo": "lugares",
+   "orden": 0,
+   "activo": true,
+   "datos": {
+    "nombre": "Armenia",
+    "distancia": "3 km",
+    "descripcion": "La capital del Quindío.",
+    "foto": ""
+   }
+  },
+  {
+   "id": "2146ad13-2cdd-597b-93b7-d703c105d547",
+   "tipo": "lugares",
+   "orden": 1,
+   "activo": true,
+   "datos": {
+    "nombre": "Museo del Oro Quimbaya",
+    "distancia": "3,7 km",
+    "descripcion": "Orfebrería quimbaya, en Armenia.",
+    "foto": ""
+   }
+  },
+  {
+   "id": "24f6c102-3b95-5f7c-b00c-0421d57b05c7",
+   "tipo": "lugares",
+   "orden": 2,
+   "activo": true,
+   "datos": {
+    "nombre": "Jardín Botánico del Quindío",
+    "distancia": "10 km",
+    "descripcion": "Bosque, guadua y mariposario en Calarcá.",
+    "foto": ""
+   }
+  },
+  {
+   "id": "06474dbc-89a8-50fa-a328-ff6bb764e6b3",
+   "tipo": "lugares",
+   "orden": 3,
+   "activo": true,
+   "datos": {
+    "nombre": "Valle de Cocora",
+    "distancia": "17 km",
+    "descripcion": "Las palmas de cera más altas del mundo.",
+    "foto": ""
+   }
+  },
+  {
+   "id": "3011e541-408e-5fcd-b266-6cc0262404b4",
+   "tipo": "lugares",
+   "orden": 4,
+   "activo": true,
+   "datos": {
+    "nombre": "Parque del Café",
+    "distancia": "20 km",
+    "descripcion": "Atracciones y cultura cafetera en Montenegro.",
+    "foto": ""
+   }
+  },
+  {
+   "id": "89937096-2e40-5602-8966-763323d223d8",
+   "tipo": "lugares",
+   "orden": 5,
+   "activo": true,
+   "datos": {
+    "nombre": "Aeropuerto El Edén",
+    "distancia": "22 a 27 km",
+    "descripcion": "Vuelos nacionales.",
+    "foto": ""
+   }
+  },
+  {
+   "id": "38b00bcb-12cf-5486-80f0-54ba3dbbefec",
+   "tipo": "galeria",
+   "orden": 0,
+   "activo": true,
+   "datos": {
+    "titulo": "Piscina y casa principal",
+    "categoria": "agua",
+    "foto": "/assets/img/fotos/piscina-casa.jpg"
+   }
+  },
+  {
+   "id": "3c6c35bb-d19b-568b-8083-06758de959e8",
+   "tipo": "galeria",
+   "orden": 1,
+   "activo": true,
+   "datos": {
+    "titulo": "Habitación queen",
+    "categoria": "habitaciones",
+    "foto": "/assets/img/fotos/habitacion-queen.jpg"
+   }
+  },
+  {
+   "id": "dd6247d0-1373-579e-a23d-9f1c212ece88",
+   "tipo": "galeria",
+   "orden": 2,
+   "activo": true,
+   "datos": {
+    "titulo": "Pérgola con brasero",
+    "categoria": "finca",
+    "foto": "/assets/img/fotos/pergola-fogata.jpg"
+   }
+  },
+  {
+   "id": "53f239a8-995f-5451-b7da-631c687a2237",
+   "tipo": "galeria",
+   "orden": 3,
+   "activo": true,
+   "datos": {
+    "titulo": "Jardín de noche en un evento",
+    "categoria": "eventos",
+    "foto": "/assets/img/fotos/ig-jardin-noche.jpg"
+   }
+  },
+  {
+   "id": "da27d256-b0dc-5dc3-89b6-b6ee95416d86",
+   "tipo": "galeria",
+   "orden": 4,
+   "activo": true,
+   "datos": {
+    "titulo": "Fachada y jardín",
+    "categoria": "finca",
+    "foto": "/assets/img/fotos/casa-cesped.jpg"
+   }
+  },
+  {
+   "id": "0a1149fd-23c9-55fd-9446-70c05d5cdea0",
+   "tipo": "galeria",
+   "orden": 5,
+   "activo": true,
+   "datos": {
+    "titulo": "Piscina con jacuzzi",
+    "categoria": "agua",
+    "foto": "/assets/img/fotos/piscina-jacuzzi.jpg"
+   }
+  },
+  {
+   "id": "18c4dfe5-1f56-50a3-8fda-9e0e13cf176e",
+   "tipo": "galeria",
+   "orden": 6,
+   "activo": true,
+   "datos": {
+    "titulo": "El kiosco",
+    "categoria": "kiosco",
+    "foto": "/assets/img/fotos/kiosco.jpg"
+   }
+  },
+  {
+   "id": "33adbd26-9a6f-55fd-a0bb-2858c911b0ca",
+   "tipo": "galeria",
+   "orden": 7,
+   "activo": true,
+   "datos": {
+    "titulo": "Mesa de postres",
+    "categoria": "eventos",
+    "foto": "/assets/img/fotos/ig-mesa-postres.jpg"
+   }
+  },
+  {
+   "id": "f910663e-8279-5f30-895b-29a8faf0971f",
+   "tipo": "galeria",
+   "orden": 8,
+   "activo": true,
+   "datos": {
+    "titulo": "Habitación familiar",
+    "categoria": "habitaciones",
+    "foto": "/assets/img/fotos/habitacion-familiar.jpg"
+   }
+  },
+  {
+   "id": "1e68aae5-ebaf-5822-b34d-f27b37af7875",
+   "tipo": "galeria",
+   "orden": 9,
+   "activo": true,
+   "datos": {
+    "titulo": "Terraza con sombrilla",
+    "categoria": "finca",
+    "foto": "/assets/img/fotos/terraza-sombrilla.jpg"
+   }
+  },
+  {
+   "id": "50701e76-4ead-578b-9998-b5e896a697b6",
+   "tipo": "galeria",
+   "orden": 10,
+   "activo": true,
+   "datos": {
+    "titulo": "Salón del kiosco",
+    "categoria": "kiosco",
+    "foto": "/assets/img/fotos/salon-kiosco.jpg"
+   }
+  },
+  {
+   "id": "0eaaef61-21a3-5b10-8b6b-e98e8fb4aebe",
+   "tipo": "galeria",
+   "orden": 11,
+   "activo": true,
+   "datos": {
+    "titulo": "Baño privado",
+    "categoria": "habitaciones",
+    "foto": "/assets/img/fotos/bano.jpg"
+   }
+  },
+  {
+   "id": "83672a22-5808-570d-bea2-8d950db84f67",
+   "tipo": "galeria",
+   "orden": 12,
+   "activo": true,
+   "datos": {
+    "titulo": "Fiesta bajo candelabros",
+    "categoria": "eventos",
+    "foto": "/assets/img/fotos/ig-boda-candelabro.jpg"
+   }
+  },
+  {
+   "id": "f6df234f-0124-57ce-9597-7608cf5989a7",
+   "tipo": "galeria",
+   "orden": 13,
+   "activo": true,
+   "datos": {
+    "titulo": "La piscina",
+    "categoria": "agua",
+    "foto": "/assets/img/fotos/piscina-amplia.jpg"
+   }
+  },
+  {
+   "id": "1ff52bd3-ebef-5773-80bd-5cb7a52c1476",
+   "tipo": "galeria",
+   "orden": 14,
+   "activo": true,
+   "datos": {
+    "titulo": "Cocina y asador",
+    "categoria": "kiosco",
+    "foto": "/assets/img/fotos/cocina-asador.jpg"
+   }
+  },
+  {
+   "id": "375e045b-c558-5865-93fe-7c3bb275f664",
+   "tipo": "galeria",
+   "orden": 15,
+   "activo": true,
+   "datos": {
+    "titulo": "Corredor de la casa",
+    "categoria": "finca",
+    "foto": "/assets/img/fotos/corredor.jpg"
+   }
+  },
+  {
+   "id": "cbc8b152-e572-59b8-b3d9-c027bfb441e3",
+   "tipo": "galeria",
+   "orden": 16,
+   "activo": true,
+   "datos": {
+    "titulo": "Habitación con ventana",
+    "categoria": "habitaciones",
+    "foto": "/assets/img/fotos/habitacion-ventana.jpg"
+   }
+  },
+  {
+   "id": "c6a862be-6581-5def-95f4-fd8417c3adbb",
+   "tipo": "galeria",
+   "orden": 17,
+   "activo": true,
+   "datos": {
+    "titulo": "Decoración de evento",
+    "categoria": "eventos",
+    "foto": "/assets/img/fotos/ig-decoracion.jpg"
+   }
+  },
+  {
+   "id": "277f6177-2ccb-56e1-921a-198b0fd04933",
+   "tipo": "galeria",
+   "orden": 18,
+   "activo": true,
+   "datos": {
+    "titulo": "Billar y ping-pong",
+    "categoria": "kiosco",
+    "foto": "/assets/img/fotos/billar.jpg"
+   }
+  },
+  {
+   "id": "6e3b5135-6641-50cd-9beb-9c97a071392d",
+   "tipo": "galeria",
+   "orden": 19,
+   "activo": true,
+   "datos": {
+    "titulo": "Terraza lounge",
+    "categoria": "finca",
+    "foto": "/assets/img/fotos/terraza-lounge.jpg"
+   }
+  },
+  {
+   "id": "1dbb1107-144e-5d34-925c-fe1c1b9f711a",
+   "tipo": "galeria",
+   "orden": 20,
+   "activo": true,
+   "datos": {
+    "titulo": "Jardín y montaña",
+    "categoria": "finca",
+    "foto": "/assets/img/fotos/jardin-montana.jpg"
+   }
+  },
+  {
+   "id": "bda6f95e-dda1-5d7e-9acf-e78d9cc97e21",
+   "tipo": "galeria",
+   "orden": 21,
+   "activo": true,
+   "datos": {
+    "titulo": "Kiosco de noche",
+    "categoria": "eventos",
+    "foto": "/assets/img/fotos/ig-kiosco-noche.jpg"
+   }
+  },
+  {
+   "id": "f9109345-9887-5421-a3d9-417e5d368bd3",
+   "tipo": "preguntas",
+   "orden": 0,
+   "activo": true,
+   "datos": {
+    "tema": "reservas",
+    "pregunta": "¿Cómo se paga la reserva?",
+    "respuesta": "Con un anticipo por transferencia o Nequi para confirmar; el saldo se paga al llegar. El porcentaje del anticipo lo confirma la finca."
+   }
+  },
+  {
+   "id": "1279df9d-0520-59a8-89a9-41c3ddd27f1d",
+   "tipo": "preguntas",
+   "orden": 1,
+   "activo": true,
+   "datos": {
+    "tema": "reservas",
+    "pregunta": "¿Puedo cancelar o cambiar la fecha?",
+    "respuesta": "Por definir: la política de cancelación y cambios la publica la finca desde el panel."
+   }
+  },
+  {
+   "id": "82ef6907-d32d-511c-860f-622f1e222a65",
+   "tipo": "preguntas",
+   "orden": 2,
+   "activo": true,
+   "datos": {
+    "tema": "reservas",
+    "pregunta": "¿Los precios incluyen impuestos?",
+    "respuesta": "Sí. Las tarifas por noche incluyen el impuesto y el seguro hotelero."
+   }
+  },
+  {
+   "id": "86d76cb4-7afd-5296-8a48-64d9cd49272b",
+   "tipo": "preguntas",
+   "orden": 3,
+   "activo": true,
+   "datos": {
+    "tema": "reservas",
+    "pregunta": "¿Por qué reservar directo?",
+    "respuesta": "Porque no pagas comisiones de terceros y hablas directamente con la finca."
+   }
+  },
+  {
+   "id": "8187f74c-b5c4-5e8e-82ee-860c661d5c1b",
+   "tipo": "preguntas",
+   "orden": 4,
+   "activo": true,
+   "datos": {
+    "tema": "estadia",
+    "pregunta": "¿A qué hora es la entrada y la salida?",
+    "respuesta": "La entrada es desde las 3:00 p. m. La hora de salida la confirma la finca."
+   }
+  },
+  {
+   "id": "08714eac-0014-5225-bc50-a2a412cc1588",
+   "tipo": "preguntas",
+   "orden": 5,
+   "activo": true,
+   "datos": {
+    "tema": "estadia",
+    "pregunta": "¿Cuál es el horario del jacuzzi?",
+    "respuesta": "El jacuzzi es climatizado y funciona de 5:00 a 10:00 p. m. todos los días."
+   }
+  },
+  {
+   "id": "441f957b-76b4-5b0c-82fc-27539663aa6a",
+   "tipo": "preguntas",
+   "orden": 6,
+   "activo": true,
+   "datos": {
+    "tema": "estadia",
+    "pregunta": "¿El desayuno está incluido?",
+    "respuesta": "Es opcional: cuesta $12.000 adicionales por persona y se pide al reservar."
+   }
+  },
+  {
+   "id": "56c57268-7ef1-5b39-ad23-e1131d5567b0",
+   "tipo": "preguntas",
+   "orden": 7,
+   "activo": true,
+   "datos": {
+    "tema": "estadia",
+    "pregunta": "¿Podemos cocinar?",
+    "respuesta": "Sí. El kiosco tiene cocina y asador para que el grupo prepare sus comidas."
+   }
+  },
+  {
+   "id": "f0177b0f-060b-549d-9c9d-96bf6580ce92",
+   "tipo": "preguntas",
+   "orden": 8,
+   "activo": true,
+   "datos": {
+    "tema": "mascotas",
+    "pregunta": "¿Puedo ir con mi mascota?",
+    "respuesta": "Sí. Las mascotas son bienvenidas sin costo adicional; avísanos al reservar."
+   }
+  },
+  {
+   "id": "85f67857-1386-5c40-96f3-0c6cc8401fdf",
+   "tipo": "preguntas",
+   "orden": 9,
+   "activo": true,
+   "datos": {
+    "tema": "mascotas",
+    "pregunta": "¿Pueden ir niños?",
+    "respuesta": "Sí. Los menores de edad deben llegar acompañados por sus padres y con su documento de identidad."
+   }
+  },
+  {
+   "id": "83cd4d46-f52e-59b6-8278-28b4dd2ddca4",
+   "tipo": "preguntas",
+   "orden": 10,
+   "activo": true,
+   "datos": {
+    "tema": "eventos",
+    "pregunta": "¿Puedo celebrar un evento?",
+    "respuesta": "Sí. Usa el cotizador de la página de eventos o escríbenos con la fecha y el número de personas."
+   }
+  },
+  {
+   "id": "c6ce5a58-7af8-58a5-a5b2-7bc33b15cbd6",
+   "tipo": "preguntas",
+   "orden": 11,
+   "activo": true,
+   "datos": {
+    "tema": "eventos",
+    "pregunta": "¿Qué incluye el pasadía?",
+    "respuesta": "Uso de las zonas sociales de 9:00 a. m. a 5:00 p. m. por $22.000 por persona más el seguro, con un mínimo de 10 personas."
+   }
+  },
+  {
+   "id": "532b8e0e-3cd7-5646-8df7-a0c2ab655f39",
+   "tipo": "preguntas",
+   "orden": 12,
+   "activo": true,
+   "datos": {
+    "tema": "eventos",
+    "pregunta": "¿Cuántas personas caben con la finca completa?",
+    "respuesta": "Hasta 40 personas en las 14 habitaciones, por $2.800.000 la noche (solo alojamiento)."
+   }
+  },
+  {
+   "id": "3cfdac0a-1fa6-5466-8691-cfb6e455d2eb",
+   "tipo": "preguntas",
+   "orden": 13,
+   "activo": true,
+   "datos": {
+    "tema": "llegada",
+    "pregunta": "¿Cómo llego desde el aeropuerto?",
+    "respuesta": "El aeropuerto El Edén está a unos 22 a 27 km. Pasa por Armenia y toma la vía a Circasia hasta el kilómetro 3, frente al Retorno Colillas."
+   }
+  },
+  {
+   "id": "80d363d3-d853-5313-b7dc-685576c1f64e",
+   "tipo": "preguntas",
+   "orden": 14,
+   "activo": true,
+   "datos": {
+    "tema": "llegada",
+    "pregunta": "¿Hay parqueadero?",
+    "respuesta": "Sí, dentro de la finca y sin costo para huéspedes."
+   }
+  },
+  {
+   "id": "4ab2bc6f-60c3-58c9-828d-14b59e50ff4f",
+   "tipo": "preguntas",
+   "orden": 15,
+   "activo": true,
+   "datos": {
+    "tema": "llegada",
+    "pregunta": "¿Hay wifi?",
+    "respuesta": "Sí. La cobertura la confirma la finca."
+   }
+  }
+ ]
+}

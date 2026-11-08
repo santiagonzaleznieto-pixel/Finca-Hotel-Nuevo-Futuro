@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reservar · Finca Hotel Nuevo Futuro</title>
+<meta name="description" content="Reserva directa en la Finca Hotel Nuevo Futuro: elige fechas, habitación y envía tu solicitud sin comisiones.">
+<meta property="og:title" content="Reservar · Finca Hotel Nuevo Futuro">
+<meta property="og:description" content="Reserva directa en la Finca Hotel Nuevo Futuro: elige fechas, habitación y envía tu solicitud sin comisiones.">
+<meta property="og:image" content="/assets/img/fotos/piscina-casa.jpg">
+<meta name="theme-color" content="#1E2B24">
+<link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/movimiento.css">
+<link rel="stylesheet" href="/assets/css/estilos.css">
+</head>
+<body data-pagina="reservar">
+<div class="nf-telon" aria-hidden="true"><span>Reservar</span></div>
+<div id="nf-cabecera"></div>
+<main id="contenido">
+<section class="hero" style="padding-bottom:56px" aria-labelledby="titulo">
+  <div class="contenedor pila" style="gap:28px">
+    <nav class="ruta nf-in" aria-label="Ruta"><a class="nf-lnk" href="/index.html">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Reservar</span></nav>
+    <h1 id="titulo"><span class="nf-mask"><span class="linea d1" data-cms="reservar.titulo_1" data-etiqueta="Título, línea 1">Reserva directa,</span></span><span class="nf-mask"><span class="linea d2" data-cms="reservar.titulo_2" data-etiqueta="Título, línea 2 (en cursiva)"><em>sin comisiones</em></span></span></h1>
+    <ol class="pasos nf-in d3" id="pasos" aria-label="Pasos de la reserva"><li class="actual"><b>1</b>Fechas</li><li><b>2</b>Habitación</li><li><b>3</b>Tus datos</li><li><b>4</b>Listo</li></ol>
+  </div>
+</section>
+<section class="seccion seccion--papel" style="padding-top:clamp(48px,6vw,80px)">
+  <div class="contenedor reserva-layout">
+    <div id="reserva-pasos">
+      <div class="pila" data-paso="1">
+        <h2 class="titulo-m">¿Cuándo vienes?</h2>
+        <div class="panel-blanco"><div class="calendario" id="res-calendario"></div><div class="leyenda" style="margin-top:16px"><span><i style="background:#fff"></i>Libre</span><span><i style="background:var(--bosque)"></i>Tu llegada y salida</span><span><i style="background:#E4DCCD"></i>Sin cupo o pasado</span></div></div>
+        <div class="panel-blanco" style="display:flex;flex-wrap:wrap;gap:24px 48px">
+          <div class="pila" style="gap:10px"><span class="etiqueta" style="color:var(--pizarra)">Adultos</span><div class="contador" data-contador="adultos"><button type="button" aria-label="Menos adultos">−</button><output aria-live="polite">2</output><button type="button" aria-label="Más adultos">+</button></div></div>
+          <div class="pila" style="gap:10px"><span class="etiqueta" style="color:var(--pizarra)">Niños</span><div class="contador" data-contador="ninos"><button type="button" aria-label="Menos niños">−</button><output aria-live="polite">0</output><button type="button" aria-label="Más niños">+</button></div></div>
+          <label class="casilla" style="grid-column:auto;align-self:center"><input type="checkbox" id="res-mascota"><span>Viajo con mascota</span></label>
+        </div>
+        <div><button type="button" class="btn btn--oscuro nf-btn" id="ir-paso-2" disabled>Ver habitaciones disponibles</button></div>
+      </div>
+      <div class="pila" data-paso="2" hidden>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center"><h2 class="titulo-m">Elige tu habitación</h2><button type="button" class="interruptor" role="switch" aria-checked="false" id="res-desayuno"><span aria-hidden="true"></span>Agregar desayuno</button></div>
+        <div class="pila" style="gap:14px" id="res-opciones" role="radiogroup" aria-label="Habitaciones disponibles"></div>
+        <div class="botones"><button type="button" class="btn btn--borde nf-btn" data-volver="1">Cambiar fechas</button><button type="button" class="btn btn--oscuro nf-btn" id="ir-paso-3" disabled>Continuar</button></div>
+      </div>
+      <form class="pila" data-paso="3" id="res-form" hidden novalidate>
+        <h2 class="titulo-m">Tus datos</h2>
+        <div class="formulario panel-blanco">
+          <label class="campo">Nombre completo<input type="text" name="nombre" autocomplete="name" required></label>
+          <label class="campo">Celular / WhatsApp<input type="tel" name="telefono" autocomplete="tel" required></label>
+          <label class="campo">Correo<input type="email" name="correo" autocomplete="email" required></label>
+          <label class="campo">Ciudad de origen<input type="text" name="ciudad" autocomplete="address-level2"></label>
+          <label class="campo campo--ancho">Hora estimada de llegada<select name="hora_llegada"><option>Antes de las 3:00 p. m.</option><option selected>Entre 3:00 y 6:00 p. m.</option><option>Después de las 6:00 p. m.</option></select></label>
+          <label class="campo campo--ancho">Comentarios<textarea name="comentarios" placeholder="Celebración especial, alergias, necesidades de accesibilidad…"></textarea></label>
+          <label class="casilla"><input type="checkbox" name="acepto" required><span>Acepto las <a href="/planes.html#condiciones" target="_blank">condiciones de reserva y cancelación</a> y autorizo el <a href="/contacto.html#datos" target="_blank">tratamiento de mis datos</a>.</span></label>
+        </div>
+        <div class="aviso" data-cms="reservar.aviso" data-etiqueta="Aviso antes de enviar la reserva">Tu reserva queda <b>pendiente</b> hasta que la confirmemos por WhatsApp y recibamos el anticipo.</div>
+        <div class="botones"><button type="button" class="btn btn--borde nf-btn" data-volver="2">Volver</button><button type="submit" class="btn btn--oro nf-btn nf-brillo" id="res-enviar">Enviar reserva</button></div>
+        <p class="aviso aviso--error" id="res-error" role="alert" hidden></p>
+      </form>
+      <div class="pila" data-paso="4" hidden>
+        <p class="etiqueta" style="color:var(--laton-oscuro)">Solicitud recibida</p>
+        <h2 class="titulo">¡Gracias! Ya casi es tuya.</h2>
+        <p class="lead">Tu código de reserva es <b class="cifra" style="font-size:1.4em" id="res-codigo"></b>. Te escribiremos para confirmar disponibilidad y el pago del anticipo.</p>
+        <div class="botones"><a class="btn btn--oscuro nf-btn" id="res-wa" href="/contacto.html" target="_blank" rel="noopener">Enviar resumen por WhatsApp</a><a class="btn btn--borde nf-btn" href="/index.html">Volver al inicio</a></div>
+      </div>
+    </div>
+    <aside class="resumen" aria-label="Resumen de tu reserva" aria-live="polite">
+      <img id="resumen-foto" src="/assets/img/fotos/piscina-casa.jpg" alt="">
+      <div class="resumen__cuerpo">
+        <h2 class="titulo-m" style="font-size:28px" id="resumen-nombre">Tu estadía</h2>
+        <dl id="resumen-datos"><div><dt>Llegada</dt><dd>—</dd></div><div><dt>Salida</dt><dd>—</dd></div><div><dt>Huéspedes</dt><dd>2 adultos</dd></div></dl>
+        <div class="total"><span>Total estimado</span><span id="resumen-total">—</span></div>
+        <p class="suave" style="font-size:13px">Anticipo para confirmar: <span data-global="global.anticipo">por definir</span>. Entrada desde las <span data-global="global.hora_entrada">3:00 p. m.</span></p>
+      </div>
+    </aside>
+  </div>
+</section>
+</main>
+<div id="nf-pie"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/datos.js"></script>
+<script src="/assets/js/sitio.js"></script>
+<script src="/assets/js/paginas.js"></script>
+</body>
+</html>

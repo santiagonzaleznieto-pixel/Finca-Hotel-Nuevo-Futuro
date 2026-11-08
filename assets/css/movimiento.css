@@ -1,0 +1,252 @@
+/* ==========================================================================
+   Nuevo Futuro · sistema de movimiento v2
+   Inspirado en el ritmo de Amo Pijao Terraza (bienvenida, entradas
+   escalonadas, transición entre vistas) y llevado más lejos con scroll.
+   Reglas: solo transform / opacity / clip-path; curvas suaves; todo se
+   apaga con "reducir movimiento". Las animaciones de entrada y de scroll
+   solo corren en una ventana real (alto < 1700 px), nunca en el lienzo.
+   ========================================================================== */
+
+:root {
+  --nf-e: cubic-bezier(.22, .61, .36, 1);   /* salida suave (la de Amo Pijao) */
+  --nf-x: cubic-bezier(.16, 1, .3, 1);      /* expo: llega rápido, se posa lento */
+  --nf-io: cubic-bezier(.76, 0, .24, 1);    /* telones y barridos */
+  interpolate-size: allow-keywords;
+}
+html { scroll-behavior: smooth; }
+:focus-visible { outline: 2px solid #C9A96E; outline-offset: 3px; }
+
+/* Transición nativa entre páginas (navegadores que la soportan) */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .55s; animation-timing-function: var(--nf-e); }
+
+/* Encabezado: fondo de vidrio (con scroll aparece poco a poco) */
+.nf-hdr::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(20, 29, 24, .86); -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2); border-bottom: 1px solid rgba(201, 169, 110, .22); pointer-events: none; }
+.nf-mask > span { display: block; }
+
+/* Retardos escalonados */
+.d1 { --d: 1; } .d2 { --d: 2; } .d3 { --d: 3; } .d4 { --d: 4; } .d5 { --d: 5; } .d6 { --d: 6; }
+.d7 { --d: 7; } .d8 { --d: 8; } .d9 { --d: 9; } .d10 { --d: 10; } .d11 { --d: 11; } .d12 { --d: 12; }
+
+/* --------------------------------------------------------------------------
+   1. Ambiente: siempre en bucle (paisaje, niebla, marquesina, pulso)
+   -------------------------------------------------------------------------- */
+@keyframes nf-deriva { from { transform: translateX(0); } to { transform: translateX(-40px); } }
+@keyframes nf-niebla { from { transform: translateX(-90px); opacity: .10; } to { transform: translateX(90px); opacity: .28; } }
+@keyframes nf-kb { from { transform: scale(1.02) translate(0, 0); } to { transform: scale(1.14) translate(-1.6%, -1.2%); } }
+@keyframes nf-marquesina { to { transform: translateX(-50%); } }
+@keyframes nf-halo { from { transform: scale(.85); opacity: .7; } to { transform: scale(1.75); opacity: 0; } }
+@keyframes nf-cae {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+@keyframes nf-respira { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+@keyframes nf-brilla { from { transform: translateX(-120%); } to { transform: translateX(220%); } }
+
+.nf-deriva { animation: nf-deriva 38s ease-in-out infinite alternate; }
+.nf-niebla { animation: nf-niebla 24s ease-in-out infinite alternate; }
+.nf-niebla.b { animation-duration: 31s; animation-direction: alternate-reverse; }
+.nf-kb { animation: nf-kb 26s ease-in-out infinite alternate; transform-origin: 60% 40%; }
+.nf-marquesina { display: flex; width: max-content; animation: nf-marquesina 52s linear infinite; }
+.nf-marquesina:hover { animation-play-state: paused; }
+.nf-halo::after { content: ""; position: absolute; inset: -1px; border-radius: 50%; border: 1px solid #C9A96E; animation: nf-halo 2.6s var(--nf-e) infinite; pointer-events: none; }
+.nf-cae { animation: nf-cae 2.4s var(--nf-io) infinite; }
+.nf-respira { animation: nf-respira 2.8s ease-in-out infinite; }
+.nf-pin-vivo { animation: nf-halo 2.2s var(--nf-e) infinite; transform-box: fill-box; transform-origin: center; }
+
+/* --------------------------------------------------------------------------
+   2. Al pasar el cursor
+   -------------------------------------------------------------------------- */
+.nf-lnk { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .5s var(--nf-e); }
+.nf-lnk:hover, .nf-lnk:focus-visible { background-size: 100% 1px; }
+
+.nf-flecha svg { transition: transform .55s var(--nf-x); }
+.nf-flecha:hover svg, .nf-flecha:focus-visible svg { transform: translateX(6px); }
+
+.nf-nav a { position: relative; }
+.nf-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -7px; height: 1px; background: #C9A96E; transform: scaleX(0); transform-origin: right; transition: transform .55s var(--nf-x); }
+.nf-nav a:hover::after, .nf-nav a:focus-visible::after, .nf-nav a.nf-activo::after { transform: scaleX(1); transform-origin: left; }
+
+/* Botón con barrido de color */
+.nf-btn { position: relative; isolation: isolate; overflow: hidden; transition: color .45s var(--nf-e), border-color .45s var(--nf-e); }
+.nf-btn::before { content: ""; position: absolute; inset: 0; z-index: -1; background: #C9A96E; transform: scaleX(0); transform-origin: right; transition: transform .65s var(--nf-x); }
+.nf-btn:hover::before, .nf-btn:focus-visible::before { transform: scaleX(1); transform-origin: left; }
+.nf-btn:hover, .nf-btn:focus-visible { color: #1E2B24 !important; border-color: #C9A96E !important; }
+.nf-btn.v-oscuro::before { background: #1E2B24; }
+.nf-btn.v-oscuro:hover, .nf-btn.v-oscuro:focus-visible { color: #FBF9F4 !important; border-color: #1E2B24 !important; }
+.nf-btn.v-crema::before { background: #FBF9F4; }
+.nf-btn.v-crema:hover, .nf-btn.v-crema:focus-visible { color: #1E2B24 !important; border-color: #FBF9F4 !important; }
+
+/* Foto que se acerca y tarjeta que se eleva */
+.nf-zoom .nf-m { transition: transform 1.4s var(--nf-x); }
+.nf-zoom:hover .nf-m, .nf-zoom:focus-within .nf-m { transform: scale(1.07); }
+.nf-card { transition: translate .6s var(--nf-x), box-shadow .6s var(--nf-x); }
+.nf-card:hover, .nf-card:focus-within { translate: 0 -8px; box-shadow: 0 34px 60px -38px rgba(20, 29, 24, .55); }
+
+/* Filas del índice: la foto se descubre de derecha a izquierda */
+.nf-fila .nf-fila-foto { clip-path: inset(0 0 0 100%); transition: clip-path .9s var(--nf-x); }
+.nf-fila:hover .nf-fila-foto, .nf-fila:focus-visible .nf-fila-foto { clip-path: inset(0); }
+.nf-fila .nf-fila-t { transition: transform .8s var(--nf-x), color .4s var(--nf-e); }
+.nf-fila:hover .nf-fila-t, .nf-fila:focus-visible .nf-fila-t { transform: translateX(28px); color: #E4CF9F; }
+.nf-fila .nf-fila-n { transition: color .4s var(--nf-e); }
+.nf-fila:hover .nf-fila-n { color: #C9A96E; }
+
+/* Brillo que cruza un botón importante */
+.nf-brillo { position: relative; overflow: hidden; }
+.nf-brillo::after { content: ""; position: absolute; top: 0; bottom: 0; width: 40%; background: linear-gradient(100deg, transparent, rgba(255, 248, 230, .35), transparent); transform: translateX(-120%); animation: nf-brilla 3.8s var(--nf-io) 2.5s infinite; pointer-events: none; }
+
+/* --------------------------------------------------------------------------
+   3. Interacción (filtros, pasos, visor): corre también en el lienzo
+   -------------------------------------------------------------------------- */
+@keyframes nf-swap-a { from { opacity: 0; transform: translateY(34px) scale(.985); } to { opacity: 1; transform: none; } }
+@keyframes nf-swap-b { from { opacity: 0; transform: translateY(34px) scale(.985); } to { opacity: 1; transform: none; } }
+@keyframes nf-paso { from { opacity: 0; transform: translateX(46px); } to { opacity: 1; transform: none; } }
+@keyframes nf-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes nf-acerca { from { opacity: 0; transform: scale(.94) translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes nf-traza { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+.nf-swap-a > * { animation: nf-swap-a .8s var(--nf-x) both; }
+.nf-swap-b > * { animation: nf-swap-b .8s var(--nf-x) both; }
+.nf-swap-a > :nth-child(2), .nf-swap-b > :nth-child(2) { animation-delay: .06s; }
+.nf-swap-a > :nth-child(3), .nf-swap-b > :nth-child(3) { animation-delay: .12s; }
+.nf-swap-a > :nth-child(4), .nf-swap-b > :nth-child(4) { animation-delay: .18s; }
+.nf-swap-a > :nth-child(5), .nf-swap-b > :nth-child(5) { animation-delay: .24s; }
+.nf-swap-a > :nth-child(6), .nf-swap-b > :nth-child(6) { animation-delay: .30s; }
+.nf-swap-a > :nth-child(n+7), .nf-swap-b > :nth-child(n+7) { animation-delay: .36s; }
+.nf-paso { animation: nf-paso .75s var(--nf-x) both; }
+.nf-modal { animation: nf-fade .45s var(--nf-e) both; }
+.nf-modal-in { animation: nf-acerca .7s var(--nf-x) both; }
+.nf-dibuja path, .nf-dibuja circle, .nf-dibuja polyline { stroke-dasharray: 1; stroke-dashoffset: 0; animation: nf-traza 1.1s var(--nf-e) .15s both; }
+
+/* --------------------------------------------------------------------------
+   4. Entradas, bienvenida y scroll: solo en ventana real
+   -------------------------------------------------------------------------- */
+.nf-telon, .nf-intro, .nf-progreso { display: none; }
+
+@media (prefers-reduced-motion: no-preference) and (max-height: 1699px) {
+
+  /* Telón: cubre la pantalla al llegar y se levanta (transición entre vistas) */
+  .nf-telon { display: grid; place-items: center; position: fixed; inset: 0; z-index: 200; background: #141D18; pointer-events: none; animation: nf-telon 1.05s var(--nf-io) .3s both; }
+  .nf-telon span { font: 500 30px/1 'Cormorant Garamond', 'Times New Roman', serif; color: #E4CF9F; letter-spacing: .02em; animation: nf-sube .6s var(--nf-e) both; }
+  @keyframes nf-telon { from { transform: translateY(0); } to { transform: translateY(-100%); visibility: hidden; } }
+
+  /* Contenido que sube al cargar, escalonado */
+  .nf-in { animation: nf-sube 1.15s var(--nf-e) both; animation-delay: calc(var(--nf-base, .85s) + var(--d, 0) * 90ms); }
+  .nf-mask { overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
+  .nf-mask > span { animation: nf-asoma 1.35s var(--nf-x) both; animation-delay: calc(var(--nf-base, .85s) + var(--d, 0) * 130ms); }
+  .nf-con-intro { --nf-base: 3.1s; }
+  @keyframes nf-sube { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+  @keyframes nf-asoma { from { transform: translateY(108%); } to { transform: none; } }
+
+  /* Bienvenida del Inicio */
+  .nf-intro { display: grid; place-items: center; position: fixed; inset: 0; z-index: 300; width: 100%; border: 0; padding: 24px; margin: 0; color: #FBF9F4; text-align: center; cursor: pointer;
+    background: radial-gradient(60% 60% at 50% 45%, #26382D, #141D18 72%); animation: nf-intro-sale 1.15s var(--nf-io) 2.35s both; }
+  @keyframes nf-intro-sale { from { clip-path: inset(0 0 0 0); } to { clip-path: inset(0 0 100% 0); visibility: hidden; } }
+  .nf-intro .nf-traza path { stroke-dasharray: 1; animation: nf-traza 1.7s var(--nf-e) .1s both; }
+  .nf-intro-linea { display: block; width: 0; height: 1px; margin: 0 auto; background: #C9A96E; animation: nf-linea 1s var(--nf-e) .75s forwards; }
+  @keyframes nf-linea { to { width: 180px; } }
+  .nf-letra { display: inline-block; animation: nf-letra 1s var(--nf-x) both; animation-delay: calc(.95s + var(--d, 0) * 55ms); }
+  @keyframes nf-letra { from { opacity: 0; transform: translateY(.6em) rotate(5deg); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+  .nf-intro-sub { animation: nf-sube .9s var(--nf-e) 1.7s both; }
+
+  @supports (animation-timeline: view()) {
+    /* Aparece al entrar en pantalla */
+    .nf-rv { animation: nf-sube linear both; animation-timeline: view(); animation-range: entry 6% entry 92%; }
+    .nf-rv.r2 { animation-range: entry 14% cover 30%; }
+    .nf-rv.r3 { animation-range: entry 22% cover 36%; }
+    .nf-rv.r4 { animation-range: entry 30% cover 42%; }
+
+    /* Fotos: se abren como una ventana y la imagen se asienta */
+    .nf-revela { animation: nf-abre linear both; animation-timeline: view(); animation-range: entry 0% cover 42%; }
+    .nf-revela .nf-m { animation: nf-asienta linear both; animation-timeline: view(); animation-range: entry 0% cover 60%; }
+    .nf-par .nf-m { animation: nf-par linear both; animation-timeline: view(); animation-range: cover; }
+    .nf-revela.nf-par .nf-m { animation: nf-asienta linear both, nf-par linear both; animation-timeline: view(), view(); animation-range: entry 0% cover 60%, cover; }
+    @keyframes nf-abre { from { clip-path: inset(13% 8% 13% 8%); } to { clip-path: inset(0); } }
+    @keyframes nf-asienta { from { scale: 1.24; } to { scale: 1; } }
+    @keyframes nf-par { from { translate: 0 -6%; } to { translate: 0 6%; } }
+
+    /* Encabezado que se vuelve sólido y logo que se compacta */
+    .nf-hdr::before { animation: nf-aparece linear both; animation-timeline: scroll(); animation-range: 0 280px; }
+    .nf-hdr .nf-logo { transform-origin: 0 50%; animation: nf-logo linear both; animation-timeline: scroll(); animation-range: 0 280px; }
+    @keyframes nf-aparece { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes nf-logo { to { transform: scale(.86); } }
+
+    /* Portada: el fondo baja más lento y el texto se despide */
+    .nf-hero-bg { animation: nf-hero linear both; animation-timeline: scroll(); animation-range: 0 1000px; }
+    .nf-hero-txt { animation: nf-hero-txt linear both; animation-timeline: scroll(); animation-range: 0 760px; }
+    @keyframes nf-hero { to { translate: 0 24%; scale: 1.08; } }
+    @keyframes nf-hero-txt { to { opacity: 0; translate: 0 -90px; } }
+
+    /* Barra de avance de lectura */
+    .nf-progreso { display: block; position: fixed; left: 0; right: 0; top: 0; height: 2px; z-index: 150; background: #C9A96E; transform-origin: 0 50%; animation: nf-prog linear both; animation-timeline: scroll(root); pointer-events: none; }
+    @keyframes nf-prog { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+    /* Líneas que se dibujan con el scroll (línea de tiempo, barras, ruta) */
+    .nf-crece-v { transform-origin: top; animation: nf-crece-v linear both; animation-timeline: view(); animation-range: cover 12% cover 78%; }
+    .nf-crece-h { transform-origin: left; animation: nf-crece-h linear both; animation-timeline: view(); animation-range: entry 20% cover 45%; }
+    @keyframes nf-crece-v { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+    @keyframes nf-crece-h { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    .nf-mapa { view-timeline: --nf-mapa block; }
+    .nf-mapa .nf-ruta { stroke-dasharray: 1; animation: nf-traza linear both; animation-timeline: --nf-mapa; animation-range: entry 25% cover 55%; }
+    .nf-mapa .nf-pin { animation: nf-sube linear both; animation-timeline: --nf-mapa; animation-range: cover 30% cover 50%; }
+
+    /* Carril horizontal fijado: la página baja, las tarjetas avanzan de lado */
+    .nf-pin { view-timeline: --nf-pin block; height: 340vh; }
+    .nf-pin-in { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+    .nf-pin-pista { width: max-content; overflow: visible !important; animation: nf-pista linear both; animation-timeline: --nf-pin; animation-range: contain 0% contain 100%; }
+    .nf-pin-barra { transform-origin: left; animation: nf-crece-h linear both; animation-timeline: --nf-pin; animation-range: contain 0% contain 100%; }
+    @keyframes nf-pista { to { transform: translateX(calc(-100% + 100vw - 48px)); } }
+
+    /* Texto grande que se ilumina palabra por palabra */
+    .nf-ilumina { animation: nf-ilumina linear both; animation-timeline: view(); animation-range: entry 40% cover 50%; }
+    @keyframes nf-ilumina { from { opacity: .18; } to { opacity: 1; } }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Reducir movimiento: todo quieto
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  @view-transition { navigation: none; }
+}
+
+/* --------------------------------------------------------------------------
+   6. Bienvenida con el logo (solo Inicio)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) and (max-height: 1699px) {
+  .nf-intro.nf-intro-logo { overflow: hidden; background: radial-gradient(55% 55% at 50% 42%, #18221C, #080B09 75%); animation-delay: 3.4s; }
+  .nf-con-intro { --nf-base: 3.95s; }
+  .lg-p { transform-box: fill-box; }
+  .lg-nl, .lg-nr { transform-origin: 50% 100%; animation: lg-escalay .85s var(--nf-x) both; }
+  .lg-nl { animation-delay: .2s; } .lg-nr { animation-delay: .34s; }
+  .lg-nd { transform-origin: 0 0; animation: lg-escala .55s cubic-bezier(.65,0,.35,1) .66s both; }
+  .lg-fsl, .lg-fsr { transform-origin: 50% 0; animation: lg-escalay .8s var(--nf-x) both; }
+  .lg-fsl { animation-delay: .82s; } .lg-fsr { animation-delay: .9s; }
+  .lg-fal { transform-origin: 100% 50%; animation: lg-escalax .65s var(--nf-x) 1.15s both; }
+  .lg-far { transform-origin: 0 50%; animation: lg-escalax .65s var(--nf-x) 1.21s both; }
+  .lg-gl, .lg-gr { animation: lg-oro .9s cubic-bezier(.34,1.56,.64,1) both; }
+  .lg-gl { animation-delay: 1.36s; } .lg-gr { animation-delay: 1.48s; }
+  .lg-brillo { animation: lg-brillo 1.05s cubic-bezier(.65,0,.35,1) 2.3s both; }
+  .lg-halo { animation: lg-halo 1.6s var(--nf-e) 1.9s both; }
+  .lg-palabra { animation: lg-tracking 1.25s var(--nf-x) 1.75s both; }
+  .lg-sub { animation: lg-sub 1s var(--nf-e) 2.25s both; }
+  .lg-todo { animation: lg-sale .75s var(--nf-io) 3.1s forwards; }
+  @keyframes lg-escalay { from { transform: scaleY(0); } to { transform: none; } }
+  @keyframes lg-escalax { from { transform: scaleX(0); } to { transform: none; } }
+  @keyframes lg-escala { from { transform: scale(0); } to { transform: none; } }
+  @keyframes lg-oro { from { opacity: 0; transform: translateY(-80px); } to { opacity: 1; transform: none; } }
+  @keyframes lg-brillo { from { transform: translateX(0); } to { transform: translateX(520px); } }
+  @keyframes lg-halo { from { opacity: 0; transform: scale(.6); } 60% { opacity: .55; } to { opacity: .35; transform: scale(1); } }
+  @keyframes lg-tracking { from { opacity: 0; letter-spacing: 1.1em; padding-left: 1.1em; filter: blur(8px); } to { opacity: 1; letter-spacing: .42em; padding-left: .42em; filter: none; } }
+  @keyframes lg-sub { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @keyframes lg-sale { to { opacity: 0; transform: scale(1.07); } }
+}
+
+/* Respaldo para navegadores sin animaciones ligadas al scroll (Firefox) */
+@media (prefers-reduced-motion: no-preference) and (max-height: 1699px) {
+  .io .nf-rv, .io .nf-revela { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--nf-e), transform 1.1s var(--nf-e); }
+  .io .nf-rv.visto, .io .nf-revela.visto { opacity: 1; transform: none; }
+}

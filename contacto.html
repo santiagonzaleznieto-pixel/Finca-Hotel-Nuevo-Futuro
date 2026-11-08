@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto · Finca Hotel Nuevo Futuro</title>
+<meta name="description" content="WhatsApp, teléfono, correo y formulario de contacto de la Finca Hotel Nuevo Futuro, Circasia, Quindío.">
+<meta property="og:title" content="Contacto · Finca Hotel Nuevo Futuro">
+<meta property="og:description" content="WhatsApp, teléfono, correo y formulario de contacto de la Finca Hotel Nuevo Futuro, Circasia, Quindío.">
+<meta property="og:image" content="/assets/img/fotos/piscina-casa.jpg">
+<meta name="theme-color" content="#1E2B24">
+<link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/movimiento.css">
+<link rel="stylesheet" href="/assets/css/estilos.css">
+</head>
+<body data-pagina="contacto">
+<div class="nf-telon" aria-hidden="true"><span>Contacto</span></div>
+<div id="nf-cabecera"></div>
+<main id="contenido">
+<section class="hero " aria-labelledby="titulo">
+  <svg class="hero__fondo" aria-hidden="true" viewBox="0 0 1440 300" preserveAspectRatio="none" style="top:auto;height:240px;width:100%"><ellipse class="nf-niebla" cx="520" cy="150" rx="700" ry="40" fill="#E3E8DF"/><g class="nf-deriva"><path d="M-40 200 C 200 140, 380 170, 560 200 C 760 232, 900 130, 1100 120 C 1260 112, 1360 160, 1480 150 L1480 300 L-40 300 Z" fill="#24332A"/></g><path d="M0 260 C 260 220, 520 270, 780 280 C 1040 290, 1240 230, 1440 240 L1440 300 L0 300 Z" fill="#1A261F"/></svg>
+  <div class="contenedor hero__contenido">
+    <div class="hero__principal">
+      <nav class="ruta nf-in" aria-label="Ruta"><a class="nf-lnk" href="/index.html">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Contacto</span></nav>
+      <p class="etiqueta nf-in d1" data-cms="contacto.etiqueta" data-etiqueta="Texto pequeño sobre el título">Contacto</p>
+      <h1 id="titulo"><span class="nf-mask"><span class="linea d1" data-cms="contacto.titulo_1" data-etiqueta="Título, línea 1">Hablemos,</span></span><span class="nf-mask"><span class="linea d2" data-cms="contacto.titulo_2" data-etiqueta="Título, línea 2 (en cursiva)"><em>te respondemos en el día</em></span></span></h1>
+    </div>
+    <div class="hero__lado nf-in d3">
+      <p class="lead" data-cms="contacto.intro" data-etiqueta="Texto de presentación">La forma más rápida es WhatsApp. También puedes llamarnos, escribirnos un correo o dejar tu mensaje aquí.</p>
+      
+    </div>
+  </div>
+</section>
+<section class="seccion seccion--papel" aria-labelledby="t-canales">
+  <div class="contenedor dos-columnas">
+    <div class="pila">
+      <h2 class="titulo-m nf-rv" id="t-canales">Canales</h2>
+      <dl class="pares nf-rv r2">
+        <div><dt>WhatsApp</dt><dd><a data-wa href="/contacto.html" class="nf-lnk"><span data-global="global.whatsapp_visible">Por publicar</span></a></dd></div>
+        <div><dt>Teléfono</dt><dd><a data-tel href="#" class="nf-lnk" data-global="global.telefono">Por publicar</a></dd></div>
+        <div><dt>Correo</dt><dd><a data-correo href="#" class="nf-lnk" data-global="global.correo">Por publicar</a></dd></div>
+        <div><dt>Dirección</dt><dd><a href="/ubicacion.html" class="nf-lnk" data-global="global.direccion">Km 3 vía Armenia–Circasia</a></dd></div>
+        <div><dt>Horario</dt><dd data-global="global.horario">Por publicar</dd></div>
+      </dl>
+      <div class="botones nf-rv r3"><a data-wa href="/contacto.html" class="btn btn--oscuro nf-btn">Escribir por WhatsApp</a><a data-red="global.instagram" href="#" class="btn btn--borde nf-btn" hidden>Instagram</a></div>
+    </div>
+    <form class="formulario panel-blanco" id="form-contacto" novalidate>
+      <h2 class="titulo-m campo--ancho" style="font-size:30px">Déjanos tu mensaje</h2>
+      <label class="campo">Nombre<input type="text" name="nombre" autocomplete="name" required></label>
+      <label class="campo">Celular / WhatsApp<input type="tel" name="telefono" autocomplete="tel" required></label>
+      <label class="campo campo--ancho">Correo<input type="email" name="correo" autocomplete="email"></label>
+      <label class="campo campo--ancho">Asunto<select name="asunto"><option>Información general</option><option>Reservas</option><option>Eventos y pasadías</option><option>Otro</option></select></label>
+      <label class="campo campo--ancho">Mensaje<textarea name="mensaje" required></textarea></label>
+      <label class="casilla"><input type="checkbox" name="acepto" required><span>Autorizo el tratamiento de mis datos para responder este mensaje. <a href="#datos">Ver política</a>.</span></label>
+      <div class="campo--ancho" style="display:flex;flex-wrap:wrap;gap:16px;align-items:center"><button class="btn btn--oscuro nf-btn" type="submit">Enviar mensaje</button><span class="suave" aria-live="polite" id="contacto-estado"></span></div>
+    </form>
+  </div>
+</section>
+<section class="seccion seccion--neblina" id="datos" aria-labelledby="t-datos">
+  <div class="contenedor" style="max-width:900px">
+    <div class="pila"><p class="etiqueta">Ley 1581 de 2012</p><h2 class="titulo-m" id="t-datos" data-cms="contacto.datos_titulo" data-etiqueta="Tratamiento de datos: título">Tratamiento de datos personales</h2>
+    <p class="suave" style="font-size:15.5px;line-height:1.75;white-space:pre-line" data-cms="contacto.datos_texto" data-etiqueta="Tratamiento de datos: texto completo">Finca Hotel Nuevo Futuro usa los datos que nos compartes (nombre, teléfono, correo y detalles de tu solicitud) solo para responder tus mensajes, gestionar tus reservas y enviarte la información que pidas. No los vendemos ni los compartimos con terceros. Puedes pedir que los actualicemos o eliminemos escribiéndonos por cualquiera de nuestros canales.
+
+Esta política es un texto de base: el responsable de la finca debe revisarla y completarla con su razón social, NIT y datos de contacto.</p></div>
+  </div>
+</section>
+</main>
+<div id="nf-pie"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/datos.js"></script>
+<script src="/assets/js/sitio.js"></script>
+<script src="/assets/js/paginas.js"></script>
+</body>
+</html>

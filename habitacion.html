@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habitación · Finca Hotel Nuevo Futuro</title>
+<meta name="description" content="Detalle, fotos, disponibilidad y precio de la habitación.">
+<meta property="og:title" content="Habitación · Finca Hotel Nuevo Futuro">
+<meta property="og:description" content="Detalle, fotos, disponibilidad y precio de la habitación.">
+<meta property="og:image" content="/assets/img/fotos/piscina-casa.jpg">
+<meta name="theme-color" content="#1E2B24">
+<link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/movimiento.css">
+<link rel="stylesheet" href="/assets/css/estilos.css">
+</head>
+<body data-pagina="habitacion">
+<div class="nf-telon" aria-hidden="true"><span>Habitación</span></div>
+<div id="nf-cabecera"></div>
+<main id="contenido">
+<section class="hero" style="padding-bottom:72px" aria-labelledby="titulo">
+  <div class="contenedor pila" style="gap:36px">
+    <nav class="ruta nf-in" aria-label="Ruta"><a class="nf-lnk" href="/index.html">Inicio</a><span aria-hidden="true">/</span><a class="nf-lnk" href="/habitaciones.html">Habitaciones</a><span aria-hidden="true">/</span><span aria-current="page" id="ruta-nombre">Habitación</span></nav>
+    <div class="hero__contenido" style="gap:24px 64px">
+      <div class="hero__principal" style="gap:16px"><p class="etiqueta nf-in d1" id="hab-etiqueta">Habitación</p><h1 id="titulo" style="font-size:clamp(64px,9vw,140px)"><span class="nf-mask"><span class="linea d2" id="hab-nombre">Cargando…</span></span></h1><p class="lead nf-in d3" id="hab-descripcion"></p></div>
+      <ul class="chips nf-in d4" id="hab-datos" style="list-style:none;margin:0;padding:0" aria-label="Datos principales"></ul>
+    </div>
+    <div class="nf-in d5 pila" style="gap:14px">
+      <div id="hab-galeria" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px"></div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px"><div id="hab-miniaturas" style="display:flex;flex-wrap:wrap;gap:10px" role="group" aria-label="Fotos"></div><div style="display:flex;align-items:center;gap:14px"><span class="cifra" style="font-size:26px" id="hab-contador" aria-live="polite"></span><button class="boton-icono nf-btn v-crema" type="button" id="hab-ant" aria-label="Fotos anteriores"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button class="boton-icono nf-btn v-crema" type="button" id="hab-sig" aria-label="Fotos siguientes"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
+    </div>
+  </div>
+</section>
+<section class="seccion seccion--papel" style="padding-top:clamp(64px,7vw,100px)">
+  <div class="contenedor reserva-layout">
+    <div>
+      <div class="pila"><h2 class="titulo-m nf-rv">Comodidades</h2><ul class="lista-lineas" id="hab-comodidades" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));column-gap:32px"></ul></div>
+      <div class="pila"><h2 class="titulo-m nf-rv">Elige tus noches</h2><div class="panel-blanco" style="max-width:640px"><div class="calendario" id="hab-calendario"></div></div></div>
+      <div class="pila"><h2 class="titulo-m nf-rv">Bueno saber</h2><dl class="pares"><div><dt>Entrada</dt><dd data-global="global.hora_entrada">3:00 p. m.</dd></div><div><dt>Salida</dt><dd data-global="global.hora_salida">Por definir</dd></div><div><dt>Mascotas</dt><dd>Bienvenidas, sin costo adicional</dd></div><div><dt>Cancelación</dt><dd><a href="/planes.html#condiciones">Ver condiciones</a></dd></div></dl></div>
+    </div>
+    <aside class="resumen" aria-label="Reservar esta habitación"><div class="resumen__cuerpo" id="hab-reserva"></div></aside>
+  </div>
+</section>
+<section class="seccion seccion--neblina" aria-labelledby="t-otras"><div class="contenedor"><div class="cabeza"><h2 class="titulo nf-rv" id="t-otras">También te puede gustar</h2><a href="/habitaciones.html" class="flecha nf-flecha">Ver todas <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="rejilla" id="hab-otras"></div></div></section>
+</main>
+<div id="nf-pie"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/datos.js"></script>
+<script src="/assets/js/sitio.js"></script>
+<script src="/assets/js/paginas.js"></script>
+</body>
+</html>
