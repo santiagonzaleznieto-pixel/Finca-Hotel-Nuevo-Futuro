@@ -650,7 +650,7 @@
    "datos": {
     "titulo": "Grados",
     "descripcion": "El fin de semana para celebrar el logro",
-    "foto": "/assets/img/fotos/ig-jardin-noche.jpg"
+    "foto": "/assets/img/fotos/piscina-casa.jpg"
    }
   },
   {
@@ -967,9 +967,9 @@
    "orden": 3,
    "activo": true,
    "datos": {
-    "titulo": "Jardín de noche en un evento",
-    "categoria": "eventos",
-    "foto": "/assets/img/fotos/ig-jardin-noche.jpg"
+    "titulo": "Fachada y jardín",
+    "categoria": "finca",
+    "foto": "/assets/img/fotos/casa-cesped.jpg"
    }
   },
   {
@@ -978,9 +978,9 @@
    "orden": 4,
    "activo": true,
    "datos": {
-    "titulo": "Fachada y jardín",
-    "categoria": "finca",
-    "foto": "/assets/img/fotos/casa-cesped.jpg"
+    "titulo": "Piscina con jacuzzi",
+    "categoria": "agua",
+    "foto": "/assets/img/fotos/piscina-jacuzzi.jpg"
    }
   },
   {
@@ -989,9 +989,9 @@
    "orden": 5,
    "activo": true,
    "datos": {
-    "titulo": "Piscina con jacuzzi",
-    "categoria": "agua",
-    "foto": "/assets/img/fotos/piscina-jacuzzi.jpg"
+    "titulo": "El kiosco",
+    "categoria": "kiosco",
+    "foto": "/assets/img/fotos/kiosco.jpg"
    }
   },
   {
@@ -1000,9 +1000,9 @@
    "orden": 6,
    "activo": true,
    "datos": {
-    "titulo": "El kiosco",
-    "categoria": "kiosco",
-    "foto": "/assets/img/fotos/kiosco.jpg"
+    "titulo": "Mesa de postres",
+    "categoria": "eventos",
+    "foto": "/assets/img/fotos/ig-mesa-postres.jpg"
    }
   },
   {
@@ -1011,9 +1011,9 @@
    "orden": 7,
    "activo": true,
    "datos": {
-    "titulo": "Mesa de postres",
-    "categoria": "eventos",
-    "foto": "/assets/img/fotos/ig-mesa-postres.jpg"
+    "titulo": "Habitación familiar",
+    "categoria": "habitaciones",
+    "foto": "/assets/img/fotos/habitacion-familiar.jpg"
    }
   },
   {
@@ -1022,9 +1022,9 @@
    "orden": 8,
    "activo": true,
    "datos": {
-    "titulo": "Habitación familiar",
-    "categoria": "habitaciones",
-    "foto": "/assets/img/fotos/habitacion-familiar.jpg"
+    "titulo": "Terraza con sombrilla",
+    "categoria": "finca",
+    "foto": "/assets/img/fotos/terraza-sombrilla.jpg"
    }
   },
   {
@@ -1033,9 +1033,9 @@
    "orden": 9,
    "activo": true,
    "datos": {
-    "titulo": "Terraza con sombrilla",
-    "categoria": "finca",
-    "foto": "/assets/img/fotos/terraza-sombrilla.jpg"
+    "titulo": "Salón del kiosco",
+    "categoria": "kiosco",
+    "foto": "/assets/img/fotos/salon-kiosco.jpg"
    }
   },
   {
@@ -1044,9 +1044,9 @@
    "orden": 10,
    "activo": true,
    "datos": {
-    "titulo": "Salón del kiosco",
-    "categoria": "kiosco",
-    "foto": "/assets/img/fotos/salon-kiosco.jpg"
+    "titulo": "Baño privado",
+    "categoria": "habitaciones",
+    "foto": "/assets/img/fotos/bano.jpg"
    }
   },
   {
@@ -1055,9 +1055,9 @@
    "orden": 11,
    "activo": true,
    "datos": {
-    "titulo": "Baño privado",
-    "categoria": "habitaciones",
-    "foto": "/assets/img/fotos/bano.jpg"
+    "titulo": "Fiesta bajo candelabros",
+    "categoria": "eventos",
+    "foto": "/assets/img/fotos/ig-boda-candelabro.jpg"
    }
   },
   {
@@ -1066,9 +1066,9 @@
    "orden": 12,
    "activo": true,
    "datos": {
-    "titulo": "Fiesta bajo candelabros",
-    "categoria": "eventos",
-    "foto": "/assets/img/fotos/ig-boda-candelabro.jpg"
+    "titulo": "La piscina",
+    "categoria": "agua",
+    "foto": "/assets/img/fotos/piscina-amplia.jpg"
    }
   },
   {
@@ -1077,9 +1077,9 @@
    "orden": 13,
    "activo": true,
    "datos": {
-    "titulo": "La piscina",
-    "categoria": "agua",
-    "foto": "/assets/img/fotos/piscina-amplia.jpg"
+    "titulo": "Cocina y asador",
+    "categoria": "kiosco",
+    "foto": "/assets/img/fotos/cocina-asador.jpg"
    }
   },
   {
@@ -1088,9 +1088,9 @@
    "orden": 14,
    "activo": true,
    "datos": {
-    "titulo": "Cocina y asador",
-    "categoria": "kiosco",
-    "foto": "/assets/img/fotos/cocina-asador.jpg"
+    "titulo": "Corredor de la casa",
+    "categoria": "finca",
+    "foto": "/assets/img/fotos/corredor.jpg"
    }
   },
   {
@@ -1099,9 +1099,9 @@
    "orden": 15,
    "activo": true,
    "datos": {
-    "titulo": "Corredor de la casa",
-    "categoria": "finca",
-    "foto": "/assets/img/fotos/corredor.jpg"
+    "titulo": "Habitación con ventana",
+    "categoria": "habitaciones",
+    "foto": "/assets/img/fotos/habitacion-ventana.jpg"
    }
   },
   {
@@ -1110,9 +1110,9 @@
    "orden": 16,
    "activo": true,
    "datos": {
-    "titulo": "Habitación con ventana",
-    "categoria": "habitaciones",
-    "foto": "/assets/img/fotos/habitacion-ventana.jpg"
+    "titulo": "Decoración de evento",
+    "categoria": "eventos",
+    "foto": "/assets/img/fotos/ig-decoracion.jpg"
    }
   },
   {
@@ -1121,9 +1121,9 @@
    "orden": 17,
    "activo": true,
    "datos": {
-    "titulo": "Decoración de evento",
-    "categoria": "eventos",
-    "foto": "/assets/img/fotos/ig-decoracion.jpg"
+    "titulo": "Billar y ping-pong",
+    "categoria": "kiosco",
+    "foto": "/assets/img/fotos/billar.jpg"
    }
   },
   {
@@ -1132,9 +1132,9 @@
    "orden": 18,
    "activo": true,
    "datos": {
-    "titulo": "Billar y ping-pong",
-    "categoria": "kiosco",
-    "foto": "/assets/img/fotos/billar.jpg"
+    "titulo": "Terraza lounge",
+    "categoria": "finca",
+    "foto": "/assets/img/fotos/terraza-lounge.jpg"
    }
   },
   {
@@ -1143,31 +1143,9 @@
    "orden": 19,
    "activo": true,
    "datos": {
-    "titulo": "Terraza lounge",
-    "categoria": "finca",
-    "foto": "/assets/img/fotos/terraza-lounge.jpg"
-   }
-  },
-  {
-   "id": "1dbb1107-144e-5d34-925c-fe1c1b9f711a",
-   "tipo": "galeria",
-   "orden": 20,
-   "activo": true,
-   "datos": {
     "titulo": "Jardín y montaña",
     "categoria": "finca",
     "foto": "/assets/img/fotos/jardin-montana.jpg"
-   }
-  },
-  {
-   "id": "bda6f95e-dda1-5d7e-9acf-e78d9cc97e21",
-   "tipo": "galeria",
-   "orden": 21,
-   "activo": true,
-   "datos": {
-    "titulo": "Kiosco de noche",
-    "categoria": "eventos",
-    "foto": "/assets/img/fotos/ig-kiosco-noche.jpg"
    }
   },
   {

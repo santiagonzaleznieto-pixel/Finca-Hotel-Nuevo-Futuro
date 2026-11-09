@@ -34,21 +34,24 @@
   </span>
 </button>
 <main id="contenido" class="nf-con-intro">
-<section class="hero hero--portada" aria-label="Portada">
-  <div class="hero__fondo nf-hero-bg" aria-hidden="true"><svg class="nf-kb" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#55695B"/><stop offset="1" stop-color="#2E4035"/></linearGradient></defs><rect width="1440" height="820" fill="url(#cielo)"/><circle class="nf-respira" cx="1040" cy="300" r="240" fill="#E9D9B0" opacity=".16"/><g class="nf-deriva"><path d="M-40 470 C 160 400, 300 380, 460 430 C 600 470, 720 360, 880 340 C 1040 320, 1180 400, 1300 380 C 1400 366, 1460 372, 1500 376 L1500 820 L-40 820 Z" fill="#4A6152"/></g><ellipse class="nf-niebla" cx="560" cy="540" rx="760" ry="56" fill="#E3E8DF"/><path d="M0 560 C 180 500, 340 520, 520 560 C 700 600, 820 500, 1000 490 C 1160 482, 1300 540, 1440 520 L1440 820 L0 820 Z" fill="#3A5043"/><ellipse class="nf-niebla b" cx="1120" cy="610" rx="520" ry="40" fill="#E3E8DF"/><path d="M0 650 C 220 600, 420 640, 640 670 C 860 700, 1080 610, 1440 640 L1440 820 L0 820 Z" fill="#2A3B31"/><g fill="none" stroke="#1B271F" stroke-linecap="round"><path d="M1180 650 L1184 430" stroke-width="3"/><path d="M1184 430 q -30 -10 -54 8 M1184 430 q 28 -14 56 4 M1184 430 q -16 -26 -42 -30 M1184 430 q 16 -26 44 -26 M1184 430 q -2 -24 4 -44" stroke-width="2.4"/></g><path d="M0 760 C 300 730, 700 770, 1440 740 L1440 820 L0 820 Z" fill="#17221C"/></svg></div>
-  <div class="hero__velo" aria-hidden="true" style="background:linear-gradient(to top,rgba(14,21,17,.8),rgba(14,21,17,.45))"></div>
-  <div class="contenedor nf-hero-txt" style="position:relative;display:flex;flex-direction:column;gap:28px">
-    <div class="portada__fila">
-      <div class="hero__principal" style="gap:26px">
-        <p class="etiqueta nf-in" data-cms="inicio.etiqueta" data-etiqueta="Texto pequeño sobre el título">Finca hotel · Circasia, Quindío</p>
-        <h1><span class="nf-mask"><span class="linea d1" data-cms="inicio.titulo_1" data-etiqueta="Título, línea 1">Donde el Quindío</span></span><span class="nf-mask"><span class="linea d2" data-cms="inicio.titulo_2" data-etiqueta="Título, línea 2 (en cursiva)"><em>baja el volumen</em></span></span></h1>
-        <p class="lead nf-in d3" data-cms="inicio.subtitulo" data-etiqueta="Texto bajo el título">Una finca entre montañas y cafetales, a 3 km de Armenia. Piscina, jacuzzi climatizado y noches de fogata para tu familia o tu grupo.</p>
-        <div class="botones nf-in d3" style="margin-top:6px"><a href="/reservar.html" class="btn btn--oro btn--grande nf-btn v-oscuro nf-brillo">Hacer una reserva</a><a href="/habitaciones.html" class="btn btn--claro btn--grande nf-btn v-crema">Ver habitaciones</a></div>
-      </div>
-      <figure class="portada__postal nf-in d4"><div class="foto"><img class="nf-kb" data-cms-img="inicio.foto_portada" data-etiqueta="Foto de la portada (vertical)" src="/assets/img/fotos/piscina-casa.jpg" alt="La piscina con jacuzzi frente a la casa principal"></div><figcaption data-cms="inicio.pie_foto" data-etiqueta="Texto bajo la foto de portada">La piscina · Circasia</figcaption></figure>
+<section class="hero portada" aria-label="Portada">
+  <div class="portada__fotos">
+    <div class="portada__marco nf-hero-bg">
+      <figure class="portada__foto activa"><img data-cms-img="inicio.foto_portada" data-etiqueta="Portada: foto 1" src="/assets/img/fotos/piscina-amplia.jpg" alt="La piscina con la casa principal al fondo" fetchpriority="high"><figcaption data-cms="inicio.pie_foto" data-etiqueta="Portada: nombre de la foto 1">La piscina</figcaption></figure>
+      <figure class="portada__foto"><img data-cms-img="inicio.foto_portada_2" data-etiqueta="Portada: foto 2" src="/assets/img/fotos/pergola-fogata.jpg" alt="La pérgola con el brasero y el jardín"><figcaption data-cms="inicio.pie_foto_2" data-etiqueta="Portada: nombre de la foto 2">La pérgola</figcaption></figure>
+      <figure class="portada__foto"><img data-cms-img="inicio.foto_portada_3" data-etiqueta="Portada: foto 3" src="/assets/img/fotos/terraza-sombrilla.jpg" alt="Terraza con vista a las montañas"><figcaption data-cms="inicio.pie_foto_3" data-etiqueta="Portada: nombre de la foto 3">La terraza</figcaption></figure>
+      <figure class="portada__foto"><img data-cms-img="inicio.foto_portada_4" data-etiqueta="Portada: foto 4" src="/assets/img/fotos/jardin-montana.jpg" alt="Jardín de la finca frente a la montaña"><figcaption data-cms="inicio.pie_foto_4" data-etiqueta="Portada: nombre de la foto 4">El jardín</figcaption></figure>
     </div>
-    <div class="nf-in d5" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
-      <a data-wa href="/contacto.html" style="display:inline-flex;flex-wrap:wrap;align-items:center;gap:2px 10px;min-height:44px;color:#E9E4D8;text-decoration:none">¿Prefieres hablar con alguien? <span class="nf-lnk">Escríbenos por WhatsApp</span></a>
+    <div class="portada__velo" aria-hidden="true"></div>
+    <div class="portada__leyenda nf-in d5" aria-hidden="true"><span class="portada__num">01</span><span class="portada__barras"><i class="activa"></i><i></i><i></i><i></i></span><span class="portada__total">04</span></div>
+  </div>
+  <div class="portada__texto nf-hero-txt">
+    <p class="etiqueta nf-in" data-cms="inicio.etiqueta" data-etiqueta="Texto pequeño sobre el título">Finca hotel · Circasia, Quindío</p>
+    <h1><span class="nf-mask"><span class="linea d1" data-cms="inicio.titulo_1" data-etiqueta="Título, línea 1">Donde el Quindío</span></span><span class="nf-mask"><span class="linea d2" data-cms="inicio.titulo_2" data-etiqueta="Título, línea 2 (en cursiva)"><em>baja el volumen</em></span></span></h1>
+    <p class="lead nf-in d3" data-cms="inicio.subtitulo" data-etiqueta="Texto bajo el título">Una finca entre montañas y cafetales, a 3 km de Armenia. Piscina, jacuzzi climatizado y noches de fogata para tu familia o tu grupo.</p>
+    <div class="botones nf-in d4"><a href="/reservar.html" class="btn btn--oro btn--grande nf-btn v-oscuro nf-brillo">Hacer una reserva</a><a href="/habitaciones.html" class="btn btn--claro btn--grande nf-btn v-crema">Ver habitaciones</a></div>
+    <div class="portada__pie nf-in d5">
+      <a data-wa href="/contacto.html" class="portada__wa">¿Prefieres hablar con alguien? <span class="nf-lnk">Escríbenos por WhatsApp</span></a>
       <span class="desliza" aria-hidden="true">Desliza<span><i class="nf-cae"></i></span></span>
     </div>
   </div>

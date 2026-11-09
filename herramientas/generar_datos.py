@@ -63,7 +63,7 @@ lote('temporadas', [
 lote('eventos', [
     {'titulo': 'Cumpleaños', 'descripcion': 'Fogata, asado y torta en el kiosco', 'foto': F('ig-mesa-postres')},
     {'titulo': 'Aniversarios', 'descripcion': 'Cena para dos o para toda la familia', 'foto': F('ig-decoracion')},
-    {'titulo': 'Grados', 'descripcion': 'El fin de semana para celebrar el logro', 'foto': F('ig-jardin-noche')},
+    {'titulo': 'Grados', 'descripcion': 'El fin de semana para celebrar el logro', 'foto': F('piscina-casa')},
     {'titulo': 'Integraciones de empresa', 'descripcion': 'Día de piscina, juegos y almuerzo', 'foto': F('salon-kiosco')},
     {'titulo': 'Reuniones familiares', 'descripcion': 'Las 14 habitaciones para la familia entera', 'foto': F('terraza-lounge')},
     {'titulo': 'Bodas', 'descripcion': 'Ceremonia en el jardín y fiesta en el salón', 'foto': F('ig-boda-candelabro')},
@@ -96,12 +96,12 @@ lote('lugares', [
     {'nombre': 'Aeropuerto El Edén', 'distancia': '22 a 27 km', 'descripcion': 'Vuelos nacionales.', 'foto': ''},
 ])
 gal = [('Piscina y casa principal','agua','piscina-casa'),('Habitación queen','habitaciones','habitacion-queen'),('Pérgola con brasero','finca','pergola-fogata'),
- ('Jardín de noche en un evento','eventos','ig-jardin-noche'),('Fachada y jardín','finca','casa-cesped'),('Piscina con jacuzzi','agua','piscina-jacuzzi'),
+ ('Fachada y jardín','finca','casa-cesped'),('Piscina con jacuzzi','agua','piscina-jacuzzi'),
  ('El kiosco','kiosco','kiosco'),('Mesa de postres','eventos','ig-mesa-postres'),('Habitación familiar','habitaciones','habitacion-familiar'),
  ('Terraza con sombrilla','finca','terraza-sombrilla'),('Salón del kiosco','kiosco','salon-kiosco'),('Baño privado','habitaciones','bano'),
  ('Fiesta bajo candelabros','eventos','ig-boda-candelabro'),('La piscina','agua','piscina-amplia'),('Cocina y asador','kiosco','cocina-asador'),
  ('Corredor de la casa','finca','corredor'),('Habitación con ventana','habitaciones','habitacion-ventana'),('Decoración de evento','eventos','ig-decoracion'),
- ('Billar y ping-pong','kiosco','billar'),('Terraza lounge','finca','terraza-lounge'),('Jardín y montaña','finca','jardin-montana'),('Kiosco de noche','eventos','ig-kiosco-noche')]
+ ('Billar y ping-pong','kiosco','billar'),('Terraza lounge','finca','terraza-lounge'),('Jardín y montaña','finca','jardin-montana')]
 lote('galeria', [{'titulo': a, 'categoria': b, 'foto': F(c)} for a, b, c in gal])
 lote('preguntas', [
     {'tema': 'reservas', 'pregunta': '¿Cómo se paga la reserva?', 'respuesta': 'Con un anticipo por transferencia o Nequi para confirmar; el saldo se paga al llegar. El porcentaje del anticipo lo confirma la finca.'},

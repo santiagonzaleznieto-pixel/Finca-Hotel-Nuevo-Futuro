@@ -127,6 +127,20 @@
 
   /* ---------- Inicio ---------- */
   PAGINAS.inicio = function () {
+    // Portada: fotos que se van turnando
+    var figs = $$('.portada__foto'), barras = $$('.portada__barras i'), num = $('.portada__num'), tot = $('.portada__total'), ahora = 0, MS = 6500;
+    var dos = function (n) { return (n < 10 ? '0' : '') + n; };
+    barras.forEach(function (b, k) { b.hidden = k >= figs.length; });
+    if (tot) tot.textContent = dos(figs.length);
+    function mostrar(n) {
+      figs[ahora].classList.remove('activa'); if (barras[ahora]) barras[ahora].classList.remove('activa');
+      ahora = n; figs[ahora].classList.add('activa');
+      if (barras[ahora]) { void barras[ahora].offsetWidth; barras[ahora].classList.add('activa'); }
+      if (num) num.textContent = dos(ahora + 1);
+    }
+    if (figs.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setInterval(function () { if (!document.hidden) mostrar((ahora + 1) % figs.length); }, MS);
+    }
     var f = $('.buscador');
     if (f) {
       var hoy = hoyIso(), ll = f.llegada, sa = f.salida;
@@ -204,12 +218,12 @@
         .filter(Boolean).map(function (t) { return '<li class="chip" style="display:inline-flex;align-items:center;gap:8px;cursor:default;border-color:rgba(251,249,244,.3);color:var(--papel)">' + t + '</li>'; }).join('');
 
       // Fotos
-      var fotos = U.textoListas(h.fotos), i = 0, porVista = window.matchMedia('(max-width: 700px)').matches ? 1 : 2;
+      var fotos = U.textoListas(h.fotos), i = 0, porVista = window.matchMedia('(min-width: 1100px)').matches ? 3 : window.matchMedia('(min-width: 700px)').matches ? 2 : 1;
       function pintarFotos() {
         var g = $('#hab-galeria');
         if (!fotos.length) { g.innerHTML = '<div class="foto foto--vacia" style="height:420px">Fotos pendientes</div>'; $('#hab-ant').hidden = $('#hab-sig').hidden = true; return; }
         var vis = []; for (var k = 0; k < Math.min(porVista, fotos.length); k++) vis.push(fotos[(i + k) % fotos.length]);
-        g.innerHTML = vis.map(function (src, k) { return '<div class="foto" style="height:clamp(300px,42vw,520px)"><img src="' + E(src) + '" alt="' + E(h.nombre) + ', foto ' + ((i + k) % fotos.length + 1) + '"></div>'; }).join('');
+        g.innerHTML = vis.map(function (src, k) { return '<div class="foto" style="height:clamp(320px,34vw,470px)"><img src="' + E(src) + '" alt="' + E(h.nombre) + ', foto ' + ((i + k) % fotos.length + 1) + '"></div>'; }).join('');
         $('#hab-contador').textContent = (i + 1) + ' / ' + fotos.length;
         $('#hab-miniaturas').innerHTML = fotos.map(function (src, k) { return '<button type="button" data-i="' + k + '" aria-label="Ver foto ' + (k + 1) + '" aria-pressed="' + (k === i) + '" style="width:64px;height:48px;padding:0;border:' + (k === i ? '2px solid var(--laton)' : '1px solid rgba(251,249,244,.3)') + ';background:none;cursor:pointer;overflow:hidden"><img src="' + E(src) + '" alt="" style="width:100%;height:100%;object-fit:cover"></button>'; }).join('');
       }
