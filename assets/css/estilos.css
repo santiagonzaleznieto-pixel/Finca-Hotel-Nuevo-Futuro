@@ -42,6 +42,8 @@ em { font-style: italic; }
 .seccion--oscura .pares dd, .seccion--noche .pares dd { color: #C9CFC8; }
 .seccion--oscura .pares, .seccion--oscura .pares > div { border-color: rgba(251,249,244,.16); }
 .seccion--oscura .pares a { color: var(--laton-claro); }
+/* Columna que acompaña el scroll solo cuando hay espacio a los lados */
+@media (min-width: 1100px) { .pegajoso { position: sticky; top: 140px; } }
 .oculto-visual { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .saltar { position: absolute; left: 16px; top: -60px; z-index: 500; background: var(--laton); color: var(--bosque); padding: 10px 16px; font-weight: 600; }
 .saltar:focus { top: 16px; }
@@ -340,6 +342,8 @@ em { font-style: italic; }
 .cargando { opacity: .5; }
 .marca-prueba { position: fixed; left: 16px; bottom: 16px; z-index: 35; background: var(--laton); color: var(--bosque); font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: 7px 12px; }
 .marca-prueba a { color: var(--bosque); }
+button.marca-prueba { border: 0; cursor: pointer; font-family: inherit; opacity: .92; }
+@media (max-width: 700px) { .marca-prueba { left: 10px; bottom: 10px; font-size: 9.5px; padding: 5px 9px; letter-spacing: .1em; } }
 .toast { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 400; background: var(--bosque); color: var(--papel); padding: 14px 22px; font-size: 14px; box-shadow: 0 20px 40px -20px rgba(0,0,0,.5); animation: nf-acerca .5s var(--nf-x) both; }
 
 @media (max-width: 640px) {

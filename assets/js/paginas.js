@@ -568,7 +568,12 @@
 
   /* ---------- Arranque ---------- */
   if (NF.modo === 'prueba' && S.pagina !== '404') {
-    document.body.insertAdjacentHTML('beforeend', '<div class="marca-prueba" title="Conecta Supabase en assets/js/config.js para recibir reservas reales">Modo prueba</div>');
+    var oculta = false; try { oculta = sessionStorage.getItem('nf-sin-marca') === '1'; } catch (e) {}
+    if (!oculta) {
+      document.body.insertAdjacentHTML('beforeend', '<button type="button" class="marca-prueba" title="Sitio en modo prueba: conecta Supabase para recibir reservas reales. Toca para ocultar.">Modo prueba <span aria-hidden="true">×</span></button>');
+      var m = document.querySelector('.marca-prueba');
+      m.addEventListener('click', function () { m.remove(); try { sessionStorage.setItem('nf-sin-marca', '1'); } catch (e) {} });
+    }
   }
   var fn = PAGINAS[S.pagina];
   if (fn) { try { fn(); } catch (e) { console.error(e); } }
