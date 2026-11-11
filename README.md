@@ -95,4 +95,4 @@ y abre `http://localhost:8080`. El panel está en `http://localhost:8080/admin/`
 - Fotos propias y en alta resolución (las actuales son de prueba, tomadas del listado de Asoatur y del Instagram de la finca; hay que confirmar el permiso de uso).
 - Datos reales: WhatsApp, teléfono, correo, horario, hora de salida, anticipo, medios de pago, política de cancelación, RNT, precios por temporada y aforo de los espacios.
 - Revisar con la finca el texto de tratamiento de datos (Ley 1581 de 2012).
-- Dominio propio (se configura en Vercel → Settings → Domains).
+- Dominio propio (se configura en Vercel → Settings → Domains). Al conectarlo, reemplaza `https://finca-hotel-nuevo-futuro.vercel.app` por el dominio nuevo en las etiquetas `og:` y `canonical` de cada página (buscar y reemplazar en los `.html`). La imagen para compartir en WhatsApp y redes es `assets/img/compartir.jpg` (1200 × 630).
