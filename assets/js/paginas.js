@@ -159,10 +159,9 @@
       var el = $('#inicio-experiencias'), lista = l.filter(function (x) { return x.destacada; });
       if (!lista.length) lista = l.slice(0, 3);
       if (!lista.length) return vacio(el, 'Pronto publicaremos las experiencias.');
-      el.innerHTML = lista.slice(0, 4).map(function (x, i) {
-        return '<article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:28px 40px;align-items:end">' +
-          '<div class="foto nf-revela" style="height:420px;position:relative' + (i % 2 ? ';order:2' : '') + '">' + img(x.foto, x.titulo, ' class="nf-m"') + '</div>' +
-          '<div class="pila nf-rv" style="gap:14px"><span class="cifra" style="color:var(--laton);font-size:40px">' + (i < 9 ? '0' : '') + (i + 1) + '</span><h3 class="titulo-m">' + E(x.titulo) + '</h3><p class="suave">' + F(x.descripcion) + '</p></div></article>';
+      el.innerHTML = lista.slice(0, 3).map(function (x, i) {
+        return '<article class="exp-tarjeta nf-rv"><div class="foto nf-zoom" style="position:relative">' + img(x.foto, x.titulo) + '</div>' +
+          '<span class="cifra">' + (i < 9 ? '0' : '') + (i + 1) + '</span><h3 class="titulo-m">' + E(x.titulo) + '</h3><p>' + F(x.descripcion) + '</p></article>';
       }).join(''); listo(el);
     }).catch(function (e) { fallo($('#inicio-experiencias'), e); });
 

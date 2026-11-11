@@ -42,8 +42,8 @@ def lote(tipo, filas):
 
 lote('experiencias', [
     {'titulo': 'Neblina y café', 'hora': '6:30', 'descripcion': 'La montaña amanece cubierta. Café en el corredor mientras la neblina se levanta sobre los cafetales.', 'foto': F('corredor'), 'destacada': False},
-    {'titulo': 'Tarde de piscina', 'hora': '10:00', 'descripcion': 'Agua para los niños y para los grandes, con las montañas de fondo.', 'foto': F('piscina-amplia'), 'destacada': True},
-    {'titulo': 'Asado en el kiosco', 'hora': '13:00', 'descripcion': 'Cocina propia, asador y mesa larga para el grupo.', 'foto': F('cocina-asador'), 'destacada': False},
+    {'titulo': 'Tarde de piscina', 'hora': '10:00', 'descripcion': 'Agua para los niños y para los grandes, con las montañas de fondo.', 'foto': F('piscina-amplia'), 'destacada': False},
+    {'titulo': 'Asado en el kiosco', 'hora': '13:00', 'descripcion': 'Cocina propia, asador y mesa larga para el grupo.', 'foto': F('cocina-asador'), 'destacada': True},
     {'titulo': 'Jacuzzi climatizado', 'hora': '17:00', 'descripcion': 'Abierto de 5:00 a 10:00 p. m., justo cuando la montaña refresca.', 'foto': F('piscina-jacuzzi'), 'destacada': True},
     {'titulo': 'Noche de fogata', 'hora': '20:00', 'descripcion': 'Picnic, historias y cielo de montaña alrededor del fuego.', 'foto': F('pergola-fogata'), 'destacada': True},
     {'titulo': 'Juegos de siempre', 'hora': '', 'descripcion': 'Billar, ping-pong, sapo y juegos infantiles.', 'foto': F('billar'), 'destacada': False},

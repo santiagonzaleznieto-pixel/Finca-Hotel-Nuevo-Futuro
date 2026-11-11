@@ -164,6 +164,24 @@ em { font-style: italic; }
   .portada__foto figcaption { top: 104px; bottom: auto; left: auto; right: 20px; font-size: 10px; }
   .portada__leyenda { display: none; }
 }
+/* Inicio: bienvenida, experiencias y cierre */
+.bienvenida { align-items: center; }
+.bienvenida__foto { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.bienvenida__foto img { width: 100%; aspect-ratio: 4 / 5; max-height: 660px; object-fit: cover; display: block; }
+.bienvenida__foto figcaption { font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: var(--pizarra); }
+.cifras.bienvenida__cifras { max-width: 520px; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.bienvenida__cifras > div { border-color: var(--linea); padding-left: 16px; }
+.bienvenida__cifras dt { color: var(--pizarra); }
+.bienvenida__cifras dd { color: var(--bosque); font-size: clamp(38px, 8vw, 48px); white-space: nowrap; }
+.experiencias-grilla { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 40px 28px; }
+.exp-tarjeta { display: flex; flex-direction: column; gap: 14px; }
+.exp-tarjeta .foto { aspect-ratio: 4 / 5; height: auto; }
+.exp-tarjeta .foto img { width: 100%; height: 100%; object-fit: cover; }
+.exp-tarjeta .cifra { color: var(--laton); font-size: 30px; line-height: 1; margin-top: 8px; }
+.exp-tarjeta p { color: #C9CFC8; font-size: 15px; line-height: 1.65; }
+.cierre { background: linear-gradient(170deg, #3E5547, #17221C); }
+.cierre__finca { margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(251,249,244,.16); width: 100%; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 10px 28px; color: #E9E4D8; font-size: 15px; }
+.cierre__precio b { font-family: var(--serif); font-weight: 500; font-size: 30px; color: var(--laton-claro); }
 /* Portadas interiores: texto a la izquierda, foto a sangre a la derecha (en celular, foto de fondo) */
 .hero.hero--foto { padding: 0; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); min-height: clamp(560px, 74vh, 760px); background: radial-gradient(120% 70% at 0% 100%, #2A3B31 0%, rgba(42,59,49,0) 60%), var(--noche); }
 .hero--foto > .hero__contenido { grid-column: 1; grid-row: 1; max-width: none; margin: 0; flex-direction: column; flex-wrap: nowrap; align-items: stretch; justify-content: flex-end; gap: 26px; padding: 150px clamp(24px, 5vw, 80px) 64px max(24px, calc((100vw - var(--ancho)) / 2 + 24px)); z-index: 2; }
