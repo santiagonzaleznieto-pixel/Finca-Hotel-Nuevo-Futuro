@@ -385,7 +385,7 @@
       var el = $('#planes-temporadas'), c = function (v) { return lleno(v) ? E(v) : '—'; };
       l = l.filter(function (t) { return lleno(t.persona) || lleno(t.pareja) || lleno(t.finca); });
       if (!l.length) { el.closest('section').hidden = true; return; }
-      el.innerHTML = l.map(function (t) { return '<tr><th scope="row">' + E(t.nombre) + '</th><td>' + c(t.fechas) + '</td><td>' + c(t.persona) + '</td><td>' + c(t.pareja) + '</td><td>' + c(t.finca) + '</td></tr>'; }).join('');
+      el.innerHTML = l.map(function (t) { return '<tr><th scope="row">' + E(t.nombre) + '</th><td data-l="Fechas">' + c(t.fechas) + '</td><td data-l="Por persona">' + c(t.persona) + '</td><td data-l="Pareja">' + c(t.pareja) + '</td><td data-l="Finca completa">' + c(t.finca) + '</td></tr>'; }).join('');
     }).catch(function (e) { console.warn(e); });
   };
 

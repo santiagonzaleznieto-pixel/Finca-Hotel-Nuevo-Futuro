@@ -386,6 +386,20 @@ em { font-style: italic; }
 .tabla th, .tabla td { padding: 20px 24px; border-bottom: 1px solid rgba(30,43,36,.1); }
 .tabla thead th { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--pizarra); font-weight: 600; }
 .tabla tbody th { font-family: var(--serif); font-size: 24px; font-weight: 500; }
+/* En celular: la tabla de temporadas se lee como tarjetas y la barra de filtros no se queda pegada */
+@media (max-width: 700px) {
+  .tabla { min-width: 0; }
+  .tabla thead { display: none; }
+  .tabla tr { display: block; padding: 18px 0; border-bottom: 1px solid rgba(30,43,36,.12); }
+  .tabla tbody th { display: block; padding: 0 0 8px; border: 0; }
+  .tabla td { display: flex; justify-content: space-between; gap: 16px; padding: 6px 0; border: 0; }
+  .tabla td::before { content: attr(data-l); color: var(--pizarra); font-size: 13px; }
+  .barra-filtros { position: static; }
+  .calendario__cabeza h3 { font-size: 22px; }
+  .barra-filtros .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -20px; padding: 0 20px; }
+  .barra-filtros .chips::-webkit-scrollbar { display: none; }
+  .barra-filtros .chip { flex: none; }
+}
 
 /* --- Pie y botón flotante ----------------------------------------------- */
 .pie { background: var(--noche); color: var(--gris-claro); padding: 80px 0 40px; }
