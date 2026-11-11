@@ -288,6 +288,7 @@ em { font-style: italic; }
 .dia__linea { position: absolute; left: 119px; top: 8px; bottom: 8px; width: 1px; background: var(--laton); }
 .dia li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 0 40px; align-items: start; }
 .dia__hora { position: relative; font-family: var(--serif); font-size: 30px; line-height: 1; padding-right: 28px; }
+.dia__hora--libre { font-size: 19px !important; line-height: 1.15; font-style: italic; color: var(--laton-oscuro); }
 .dia__hora::after { content: ""; position: absolute; right: -6px; top: 8px; width: 11px; height: 11px; border-radius: 50%; background: var(--papel); border: 1px solid var(--laton); }
 .dia__cuerpo { display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: center; }
 .dia__cuerpo > div:first-child { flex: 1 1 300px; display: flex; flex-direction: column; gap: 10px; }

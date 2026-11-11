@@ -122,7 +122,8 @@
       var v = aj[el.getAttribute('data-global')];
       if (!sinDato(v)) el.textContent = v; else ocultar(el);
     });
-    document.querySelectorAll('[data-wa]').forEach(function (a) { a.href = waUrl(aj, a.getAttribute('data-wa-texto')); if (/^https/.test(a.href)) { a.target = '_blank'; a.rel = 'noopener'; } });
+    // Sin número de WhatsApp cargado, los botones y enlaces de WhatsApp no se muestran
+    document.querySelectorAll('[data-wa]').forEach(function (a) { if (!wn) { ocultar(a); return; } a.href = waUrl(aj, a.getAttribute('data-wa-texto')); a.target = '_blank'; a.rel = 'noopener'; });
     document.querySelectorAll('[data-correo]').forEach(function (a) { if (aj['global.correo']) a.href = 'mailto:' + aj['global.correo']; });
     document.querySelectorAll('[data-tel]').forEach(function (a) { if (aj['global.telefono']) a.href = 'tel:' + String(aj['global.telefono']).replace(/[^\d+]/g, ''); });
     document.querySelectorAll('[data-red]').forEach(function (a) { var v = aj[a.getAttribute('data-red')]; if (v) { a.href = v; a.hidden = false; a.target = '_blank'; a.rel = 'noopener'; } });

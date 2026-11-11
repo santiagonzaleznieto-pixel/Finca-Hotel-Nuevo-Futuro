@@ -32,7 +32,7 @@ for i, n in enumerate(['Colibrí', 'Yarumo', 'Orquídea', 'Toche', 'Palma de cer
     h(n, 'Habitación doble', 'pareja', 2, 'Cama doble o queen', 'Baño privado', 200000, 'noche', [Q, B, 'jardin-montana'], i == 0)
 for i, n in enumerate(['Barranquero', 'Cafeto', 'Tucán', 'Bahareque']):
     h(n, 'Habitación familiar', 'familiar', 4, 'Cama doble y camarote', 'Baño privado', 70000, 'persona', [FA, B, 'corredor'], i == 0)
-h('Guadua', 'Habitación de grupo', 'grupo', 8, 'Doble y 3 camarotes', 'La más amplia', 70000, 'persona', [V, FA, B], True)
+h('Guadua', 'Habitación de grupo', 'grupo', 6, 'Doble y 2 camarotes', 'La más amplia', 70000, 'persona', [V, FA, B], True)
 h('Finca completa', 'Finca completa', 'finca', 40, '14 habitaciones', 'Hasta 40 personas, en exclusiva', 2800000, 'noche', ['piscina-casa', 'casa-cesped', 'kiosco'])
 
 colecciones = [item('habitaciones', i, d) for i, d in enumerate(hab)]

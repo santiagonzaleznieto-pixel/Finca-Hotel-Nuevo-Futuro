@@ -259,6 +259,7 @@
         var q = new URLSearchParams({ h: h.id }); if (n) { q.set('llegada', st.llegada); q.set('salida', st.salida); } q.set('adultos', st.huespedes);
         $('#r-ir').href = '/reservar.html?' + q.toString();
         $('#r-ir').textContent = n ? 'Reservar ' + n + (n === 1 ? ' noche' : ' noches') : 'Reservar';
+        $('#r-wa').hidden = !/^https/.test(S.waUrl(aj, ''));
         $('#r-wa').href = S.waUrl(aj, 'Hola, quiero preguntar por ' + nombre + (n ? ' del ' + U.fechaCorta(st.llegada) + ' al ' + U.fechaCorta(st.salida) : '') + ' para ' + st.huespedes + ' personas.');
       }
       contador($('#r-hu'), st.huespedes, 1, Number(h.capacidad) || 40, function (v) { st.huespedes = v; actualizar(); });
@@ -278,23 +279,18 @@
   /* ---------- Experiencias ---------- */
   PAGINAS.experiencias = function () {
     NF.coleccion('experiencias').then(function (l) {
-      var dia = $('#exp-dia'), conHora = l.filter(function (x) { return x.hora; }).sort(function (a, b) {
-        var p = function (h) { var m = String(h).match(/(\d{1,2})[:.]?(\d{2})?/); return m ? Number(m[1]) * 60 + Number(m[2] || 0) : 0; };
-        return p(a.hora) - p(b.hora);
-      });
-      if (conHora.length) {
-        dia.insertAdjacentHTML('beforeend', conHora.map(function (x) {
-          return '<li><span class="dia__hora nf-rv">' + E(x.hora) + '</span><div class="dia__cuerpo"><div class="nf-rv"><h3 class="titulo-m">' + E(x.titulo) + '</h3><p class="suave">' + F(x.descripcion) + '</p></div>' +
-            '<div class="foto nf-revela" style="position:relative">' + img(x.foto, x.titulo, ' class="nf-m"') + '</div></div></li>';
-        }).join(''));
-        listo(dia);
-      } else dia.closest('section').hidden = true;
-      var el = $('#exp-todas');
-      if (!l.length) return vacio(el, 'Pronto publicaremos las experiencias.');
-      el.innerHTML = l.map(function (x) {
-        return '<article class="tarjeta-oscura nf-card nf-rv" style="min-height:380px">' + (x.foto ? '<img src="' + E(x.foto) + '" alt="" loading="lazy">' : '') + '<div><h3>' + E(x.titulo) + '</h3><p style="font-size:14.5px;line-height:1.6;color:#E9E4D8">' + F(x.descripcion) + '</p></div></article>';
-      }).join(''); listo(el);
-    }).catch(function (e) { fallo($('#exp-todas'), e); });
+      var dia = $('#exp-dia');
+      var minutos = function (h) { var m = String(h).match(/(\d{1,2})[:.]?(\d{2})?/); return m ? Number(m[1]) * 60 + Number(m[2] || 0) : 0; };
+      // Primero las que tienen hora (en orden del día) y al final las que se hacen a cualquier hora
+      var conHora = l.filter(function (x) { return x.hora; }).sort(function (a, b) { return minutos(a.hora) - minutos(b.hora); });
+      var lista = conHora.concat(l.filter(function (x) { return !x.hora; }));
+      if (!lista.length) { dia.closest('section').hidden = true; return; }
+      dia.insertAdjacentHTML('beforeend', lista.map(function (x) {
+        return '<li><span class="dia__hora nf-rv' + (x.hora ? '' : ' dia__hora--libre') + '">' + (x.hora ? E(x.hora) : 'Cuando quieras') + '</span><div class="dia__cuerpo"><div class="nf-rv"><h3 class="titulo-m">' + E(x.titulo) + '</h3><p class="suave">' + F(x.descripcion) + '</p></div>' +
+          '<div class="foto nf-revela" style="position:relative">' + img(x.foto, x.titulo, ' class="nf-m"') + '</div></div></li>';
+      }).join(''));
+      listo(dia);
+    }).catch(function (e) { fallo($('#exp-dia'), e); });
   };
 
   /* ---------- La finca ---------- */
@@ -329,7 +325,7 @@
       var btn = $('button[type="submit"]', form); btn.disabled = true; estado.textContent = 'Enviando…';
       NF.crearSolicitud(Object.assign({ tipo: tipo }, armar(d))).then(function () {
         form.reset();
-        estado.textContent = NF.modo === 'prueba' ? '¡Recibido! (Sitio en modo prueba: el mensaje solo se guarda en este navegador. Escríbenos por WhatsApp para asegurar la respuesta.)' : '¡Recibido! Te responderemos muy pronto.';
+        estado.textContent = NF.modo === 'prueba' ? '¡Recibido! (Sitio en modo prueba: el mensaje solo se guarda en este navegador y la finca todavía no lo recibe.)' : '¡Recibido! Te responderemos muy pronto.';
         S.toast('Solicitud enviada');
       }).catch(function (err) { estado.textContent = 'No se pudo enviar: ' + err.message + ' Intenta de nuevo o escríbenos por WhatsApp.'; })
         .then(function () { btn.disabled = false; });
@@ -577,7 +573,7 @@
           (r.total ? '\nTotal estimado: ' + U.pesos(r.total) : '') + '\nNombre: ' + d.nombre;
         var wa = S.waUrl(aj, txt), a = $('#res-wa');
         if (/^https/.test(wa)) a.href = wa; else a.hidden = true;
-        if (NF.modo === 'prueba') $('[data-paso="4"] .lead').insertAdjacentHTML('afterend', '<p class="aviso">El sitio está en <b>modo prueba</b>: esta reserva solo quedó guardada en este navegador. Envía el resumen por WhatsApp para que la finca la reciba.</p>');
+        if (NF.modo === 'prueba') $('[data-paso="4"] .lead').insertAdjacentHTML('afterend', '<p class="aviso">El sitio está en <b>modo prueba</b>: esta reserva solo quedó guardada en este navegador' + (/^https/.test(wa) ? '. Envía el resumen por WhatsApp para que la finca la reciba.' : ' y la finca todavía no la recibe.') + '</p>');
         irA(4);
       }).catch(function (x) { err.textContent = x.message || 'No se pudo enviar la reserva.'; err.hidden = false; })
         .then(function () { btn.disabled = false; btn.textContent = 'Enviar reserva'; });
