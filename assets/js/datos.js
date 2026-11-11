@@ -16,8 +16,9 @@
   var OPC_TIPO_HAB = [['pareja', 'Para dos'], ['familiar', 'Familiar'], ['grupo', 'Grupos'], ['finca', 'Finca completa']];
   var ESQUEMAS = {
     habitaciones: { titulo: 'Habitaciones', singular: 'habitación', campos: [
-      { k: 'nombre', l: 'Nombre', t: 'texto', req: true },
-      { k: 'tipo', l: 'Tipo', t: 'select', op: OPC_TIPO_HAB },
+      { k: 'nombre', l: 'Nombre interno', t: 'texto', req: true, ayuda: 'Para reconocerla en el panel (ej.: Habitación 3 o Yarumo).' },
+      { k: 'grupo', l: 'Nombre público del tipo', t: 'texto', ayuda: 'Las habitaciones con el mismo nombre de tipo se muestran juntas en una sola tarjeta con cuántas quedan libres. Ej.: Habitación doble. Usa el mismo precio y capacidad en todas las de un tipo. Si lo dejas vacío, se muestra sola con su nombre interno.' },
+      { k: 'tipo', l: 'Categoría', t: 'select', op: OPC_TIPO_HAB },
       { k: 'capacidad', l: 'Capacidad (personas)', t: 'numero' },
       { k: 'camas', l: 'Camas', t: 'texto', ayuda: 'Ej.: Cama queen · Doble y camarote' },
       { k: 'detalle', l: 'Detalle corto', t: 'texto', ayuda: 'Ej.: 30 m² · vista a la colina' },
@@ -140,6 +141,28 @@
   }
 
   /* Días ocupados de una habitación según la lista de disponibilidad */
+  /* Agrupa habitaciones con el mismo "grupo" (tipo público). Cada grupo usa los datos de su primera habitación. */
+  function agrupar(habitaciones) {
+    var grupos = [], porClave = {};
+    (habitaciones || []).forEach(function (h) {
+      var clave = String(h.grupo || '').trim().toLowerCase() || ('id:' + h.id);
+      var g = porClave[clave];
+      if (!g) { g = porClave[clave] = { id: h.id, nombre: String(h.grupo || '').trim() || h.nombre, rep: h, miembros: [] }; grupos.push(g); }
+      g.miembros.push(h);
+    });
+    grupos.forEach(function (g) { g.total = g.miembros.length; g.destacada = g.miembros.some(function (h) { return h.destacada; }); });
+    return grupos;
+  }
+  function grupoDe(habId, habitaciones) {
+    return agrupar(habitaciones).filter(function (g) { return g.miembros.some(function (h) { return h.id === habId; }); })[0] || null;
+  }
+  /* Noches en que no queda ninguna habitación libre del grupo */
+  function diasOcupadosGrupo(grupo, lista, habitaciones) {
+    var porHab = grupo.miembros.map(function (h) { return diasOcupados(h.id, lista, habitaciones); }), set = {};
+    Object.keys(porHab[0] || {}).forEach(function (f) { if (porHab.every(function (o) { return o[f]; })) set[f] = true; });
+    return set;
+  }
+
   function diasOcupados(habId, lista, habitaciones) {
     var fincas = habitaciones.filter(function (h) { return h.tipo === 'finca'; }).map(function (h) { return h.id; });
     var esFinca = fincas.indexOf(habId) !== -1;
@@ -349,6 +372,6 @@
     ESQUEMAS: ESQUEMAS, GLOBALES: GLOBALES, PAGINAS: PAGINAS,
     ajustes: ajustes, coleccion: coleccion, disponibilidad: disponibilidad, crearReserva: crearReserva, crearSolicitud: crearSolicitud,
     admin: admin,
-    util: { pesos: pesos, escapar: escapar, formatear: formatear, iso: iso, deIso: deIso, noches: noches, fechaCorta: fechaCorta, uid: uid, calcularTotal: calcularTotal, diasOcupados: diasOcupados, textoListas: textoListas, rangoDias: rangoDias }
+    util: { pesos: pesos, escapar: escapar, formatear: formatear, iso: iso, deIso: deIso, noches: noches, fechaCorta: fechaCorta, uid: uid, calcularTotal: calcularTotal, diasOcupados: diasOcupados, agrupar: agrupar, grupoDe: grupoDe, diasOcupadosGrupo: diasOcupadosGrupo, textoListas: textoListas, rangoDias: rangoDias }
   };
 })();

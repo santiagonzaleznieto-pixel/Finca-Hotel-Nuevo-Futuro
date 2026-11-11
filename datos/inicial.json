@@ -25,10 +25,11 @@
    "activo": true,
    "datos": {
     "nombre": "Colibrí",
+    "grupo": "Habitación doble",
     "tipo": "pareja",
     "capacidad": 2,
-    "camas": "Cama queen",
-    "detalle": "30 m² · vista a la colina",
+    "camas": "Cama doble o queen",
+    "detalle": "Baño privado",
     "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
     "precio": 200000,
     "modo_precio": "noche",
@@ -52,11 +53,244 @@
    "orden": 1,
    "activo": true,
    "datos": {
+    "nombre": "Yarumo",
+    "grupo": "Habitación doble",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble o queen",
+    "detalle": "Baño privado",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg",
+     "/assets/img/fotos/jardin-montana.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "5d098715-21e0-585c-bc32-f11ca650c0cb",
+   "tipo": "habitaciones",
+   "orden": 2,
+   "activo": true,
+   "datos": {
+    "nombre": "Orquídea",
+    "grupo": "Habitación doble",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble o queen",
+    "detalle": "Baño privado",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg",
+     "/assets/img/fotos/jardin-montana.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "17ce879f-151b-5feb-8275-595f032d18c7",
+   "tipo": "habitaciones",
+   "orden": 3,
+   "activo": true,
+   "datos": {
+    "nombre": "Toche",
+    "grupo": "Habitación doble",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble o queen",
+    "detalle": "Baño privado",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg",
+     "/assets/img/fotos/jardin-montana.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "54df374e-d169-532a-ab9c-c3ec7929ee64",
+   "tipo": "habitaciones",
+   "orden": 4,
+   "activo": true,
+   "datos": {
+    "nombre": "Palma de cera",
+    "grupo": "Habitación doble",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble o queen",
+    "detalle": "Baño privado",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg",
+     "/assets/img/fotos/jardin-montana.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "2ea288d0-87ab-5e3d-a890-08ca5a8234c2",
+   "tipo": "habitaciones",
+   "orden": 5,
+   "activo": true,
+   "datos": {
+    "nombre": "Mirla",
+    "grupo": "Habitación doble",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble o queen",
+    "detalle": "Baño privado",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg",
+     "/assets/img/fotos/jardin-montana.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "58fe2445-353e-5497-a08b-31c95aa0aeee",
+   "tipo": "habitaciones",
+   "orden": 6,
+   "activo": true,
+   "datos": {
+    "nombre": "Heliconia",
+    "grupo": "Habitación doble",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble o queen",
+    "detalle": "Baño privado",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg",
+     "/assets/img/fotos/jardin-montana.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "b5ed1991-4e12-50d3-ba26-cbc14d0ea41c",
+   "tipo": "habitaciones",
+   "orden": 7,
+   "activo": true,
+   "datos": {
+    "nombre": "Carriquí",
+    "grupo": "Habitación doble",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble o queen",
+    "detalle": "Baño privado",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg",
+     "/assets/img/fotos/jardin-montana.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "a7761172-2a4d-5c0e-b5da-d160a9737259",
+   "tipo": "habitaciones",
+   "orden": 8,
+   "activo": true,
+   "datos": {
+    "nombre": "Guayacán",
+    "grupo": "Habitación doble",
+    "tipo": "pareja",
+    "capacidad": 2,
+    "camas": "Cama doble o queen",
+    "detalle": "Baño privado",
+    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
+    "precio": 200000,
+    "modo_precio": "noche",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-queen.jpg",
+     "/assets/img/fotos/bano.jpg",
+     "/assets/img/fotos/jardin-montana.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "40796e70-6b3f-5cda-9c35-21362861e1ac",
+   "tipo": "habitaciones",
+   "orden": 9,
+   "activo": true,
+   "datos": {
     "nombre": "Barranquero",
+    "grupo": "Habitación familiar",
     "tipo": "familiar",
-    "capacidad": 5,
-    "camas": "Doble y camarote",
-    "detalle": "Para familias",
+    "capacidad": 4,
+    "camas": "Cama doble y camarote",
+    "detalle": "Baño privado",
     "descripcion": "Pensada para familias: espacio para todos y acceso directo a las zonas sociales de la finca.",
     "precio": 70000,
     "modo_precio": "persona",
@@ -75,12 +309,100 @@
    }
   },
   {
-   "id": "5d098715-21e0-585c-bc32-f11ca650c0cb",
+   "id": "3e37e3cc-12e9-5136-b2a8-149bffb9ec5e",
    "tipo": "habitaciones",
-   "orden": 2,
+   "orden": 10,
+   "activo": true,
+   "datos": {
+    "nombre": "Cafeto",
+    "grupo": "Habitación familiar",
+    "tipo": "familiar",
+    "capacidad": 4,
+    "camas": "Cama doble y camarote",
+    "detalle": "Baño privado",
+    "descripcion": "Pensada para familias: espacio para todos y acceso directo a las zonas sociales de la finca.",
+    "precio": 70000,
+    "modo_precio": "persona",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-familiar.jpg",
+     "/assets/img/fotos/bano.jpg",
+     "/assets/img/fotos/corredor.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "e30d629e-f3db-5837-b826-1c41aef16148",
+   "tipo": "habitaciones",
+   "orden": 11,
+   "activo": true,
+   "datos": {
+    "nombre": "Tucán",
+    "grupo": "Habitación familiar",
+    "tipo": "familiar",
+    "capacidad": 4,
+    "camas": "Cama doble y camarote",
+    "detalle": "Baño privado",
+    "descripcion": "Pensada para familias: espacio para todos y acceso directo a las zonas sociales de la finca.",
+    "precio": 70000,
+    "modo_precio": "persona",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-familiar.jpg",
+     "/assets/img/fotos/bano.jpg",
+     "/assets/img/fotos/corredor.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "6df5b9bd-bb7a-5032-b113-83d3dbbde942",
+   "tipo": "habitaciones",
+   "orden": 12,
+   "activo": true,
+   "datos": {
+    "nombre": "Bahareque",
+    "grupo": "Habitación familiar",
+    "tipo": "familiar",
+    "capacidad": 4,
+    "camas": "Cama doble y camarote",
+    "detalle": "Baño privado",
+    "descripcion": "Pensada para familias: espacio para todos y acceso directo a las zonas sociales de la finca.",
+    "precio": 70000,
+    "modo_precio": "persona",
+    "comodidades": [
+     "Baño privado con agua caliente",
+     "Ropa de cama y toallas",
+     "Wifi",
+     "Acceso a piscina y jacuzzi"
+    ],
+    "fotos": [
+     "/assets/img/fotos/habitacion-familiar.jpg",
+     "/assets/img/fotos/bano.jpg",
+     "/assets/img/fotos/corredor.jpg"
+    ],
+    "destacada": false
+   }
+  },
+  {
+   "id": "d11180f3-eb42-520f-a8e7-2b1c3caf9aa8",
+   "tipo": "habitaciones",
+   "orden": 13,
    "activo": true,
    "datos": {
     "nombre": "Guadua",
+    "grupo": "Habitación de grupo",
     "tipo": "grupo",
     "capacidad": 8,
     "camas": "Doble y 3 camarotes",
@@ -103,309 +425,13 @@
    }
   },
   {
-   "id": "17ce879f-151b-5feb-8275-595f032d18c7",
-   "tipo": "habitaciones",
-   "orden": 3,
-   "activo": true,
-   "datos": {
-    "nombre": "Yarumo",
-    "tipo": "pareja",
-    "capacidad": 2,
-    "camas": "Cama doble",
-    "detalle": "Para dos",
-    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
-    "precio": 200000,
-    "modo_precio": "noche",
-    "comodidades": [
-     "Baño privado con agua caliente",
-     "Ropa de cama y toallas",
-     "Wifi",
-     "Acceso a piscina y jacuzzi"
-    ],
-    "fotos": [
-     "/assets/img/fotos/habitacion-queen.jpg",
-     "/assets/img/fotos/bano.jpg"
-    ],
-    "destacada": false
-   }
-  },
-  {
-   "id": "54df374e-d169-532a-ab9c-c3ec7929ee64",
-   "tipo": "habitaciones",
-   "orden": 4,
-   "activo": true,
-   "datos": {
-    "nombre": "Orquídea",
-    "tipo": "pareja",
-    "capacidad": 2,
-    "camas": "Cama doble",
-    "detalle": "Para dos",
-    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
-    "precio": 200000,
-    "modo_precio": "noche",
-    "comodidades": [
-     "Baño privado con agua caliente",
-     "Ropa de cama y toallas",
-     "Wifi",
-     "Acceso a piscina y jacuzzi"
-    ],
-    "fotos": [
-     "/assets/img/fotos/habitacion-queen.jpg",
-     "/assets/img/fotos/bano.jpg"
-    ],
-    "destacada": false
-   }
-  },
-  {
-   "id": "2ea288d0-87ab-5e3d-a890-08ca5a8234c2",
-   "tipo": "habitaciones",
-   "orden": 5,
-   "activo": true,
-   "datos": {
-    "nombre": "Toche",
-    "tipo": "pareja",
-    "capacidad": 2,
-    "camas": "Cama doble",
-    "detalle": "Para dos",
-    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
-    "precio": 200000,
-    "modo_precio": "noche",
-    "comodidades": [
-     "Baño privado con agua caliente",
-     "Ropa de cama y toallas",
-     "Wifi",
-     "Acceso a piscina y jacuzzi"
-    ],
-    "fotos": [
-     "/assets/img/fotos/habitacion-queen.jpg",
-     "/assets/img/fotos/bano.jpg"
-    ],
-    "destacada": false
-   }
-  },
-  {
-   "id": "58fe2445-353e-5497-a08b-31c95aa0aeee",
-   "tipo": "habitaciones",
-   "orden": 6,
-   "activo": true,
-   "datos": {
-    "nombre": "Palma de cera",
-    "tipo": "pareja",
-    "capacidad": 2,
-    "camas": "Cama queen",
-    "detalle": "Para dos",
-    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
-    "precio": 200000,
-    "modo_precio": "noche",
-    "comodidades": [
-     "Baño privado con agua caliente",
-     "Ropa de cama y toallas",
-     "Wifi",
-     "Acceso a piscina y jacuzzi"
-    ],
-    "fotos": [
-     "/assets/img/fotos/habitacion-queen.jpg",
-     "/assets/img/fotos/bano.jpg"
-    ],
-    "destacada": false
-   }
-  },
-  {
-   "id": "b5ed1991-4e12-50d3-ba26-cbc14d0ea41c",
-   "tipo": "habitaciones",
-   "orden": 7,
-   "activo": true,
-   "datos": {
-    "nombre": "Mirla",
-    "tipo": "pareja",
-    "capacidad": 2,
-    "camas": "Cama doble",
-    "detalle": "Para dos",
-    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
-    "precio": 200000,
-    "modo_precio": "noche",
-    "comodidades": [
-     "Baño privado con agua caliente",
-     "Ropa de cama y toallas",
-     "Wifi",
-     "Acceso a piscina y jacuzzi"
-    ],
-    "fotos": [
-     "/assets/img/fotos/habitacion-queen.jpg",
-     "/assets/img/fotos/bano.jpg"
-    ],
-    "destacada": false
-   }
-  },
-  {
-   "id": "a7761172-2a4d-5c0e-b5da-d160a9737259",
-   "tipo": "habitaciones",
-   "orden": 8,
-   "activo": true,
-   "datos": {
-    "nombre": "Heliconia",
-    "tipo": "pareja",
-    "capacidad": 2,
-    "camas": "Cama doble",
-    "detalle": "Para dos",
-    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
-    "precio": 200000,
-    "modo_precio": "noche",
-    "comodidades": [
-     "Baño privado con agua caliente",
-     "Ropa de cama y toallas",
-     "Wifi",
-     "Acceso a piscina y jacuzzi"
-    ],
-    "fotos": [
-     "/assets/img/fotos/habitacion-queen.jpg",
-     "/assets/img/fotos/bano.jpg"
-    ],
-    "destacada": false
-   }
-  },
-  {
-   "id": "40796e70-6b3f-5cda-9c35-21362861e1ac",
-   "tipo": "habitaciones",
-   "orden": 9,
-   "activo": true,
-   "datos": {
-    "nombre": "Carriquí",
-    "tipo": "pareja",
-    "capacidad": 2,
-    "camas": "Cama doble",
-    "detalle": "Para dos",
-    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
-    "precio": 200000,
-    "modo_precio": "noche",
-    "comodidades": [
-     "Baño privado con agua caliente",
-     "Ropa de cama y toallas",
-     "Wifi",
-     "Acceso a piscina y jacuzzi"
-    ],
-    "fotos": [
-     "/assets/img/fotos/habitacion-queen.jpg",
-     "/assets/img/fotos/bano.jpg"
-    ],
-    "destacada": false
-   }
-  },
-  {
-   "id": "3e37e3cc-12e9-5136-b2a8-149bffb9ec5e",
-   "tipo": "habitaciones",
-   "orden": 10,
-   "activo": true,
-   "datos": {
-    "nombre": "Guayacán",
-    "tipo": "pareja",
-    "capacidad": 2,
-    "camas": "Cama doble",
-    "detalle": "Para dos",
-    "descripcion": "Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.",
-    "precio": 200000,
-    "modo_precio": "noche",
-    "comodidades": [
-     "Baño privado con agua caliente",
-     "Ropa de cama y toallas",
-     "Wifi",
-     "Acceso a piscina y jacuzzi"
-    ],
-    "fotos": [
-     "/assets/img/fotos/habitacion-queen.jpg",
-     "/assets/img/fotos/bano.jpg"
-    ],
-    "destacada": false
-   }
-  },
-  {
-   "id": "e30d629e-f3db-5837-b826-1c41aef16148",
-   "tipo": "habitaciones",
-   "orden": 11,
-   "activo": true,
-   "datos": {
-    "nombre": "Cafeto",
-    "tipo": "familiar",
-    "capacidad": 3,
-    "camas": "Doble y sencilla",
-    "detalle": "Para familias pequeñas",
-    "descripcion": "Pensada para familias: espacio para todos y acceso directo a las zonas sociales de la finca.",
-    "precio": 70000,
-    "modo_precio": "persona",
-    "comodidades": [
-     "Baño privado con agua caliente",
-     "Ropa de cama y toallas",
-     "Wifi",
-     "Acceso a piscina y jacuzzi"
-    ],
-    "fotos": [
-     "/assets/img/fotos/habitacion-ventana.jpg",
-     "/assets/img/fotos/bano.jpg"
-    ],
-    "destacada": false
-   }
-  },
-  {
-   "id": "6df5b9bd-bb7a-5032-b113-83d3dbbde942",
-   "tipo": "habitaciones",
-   "orden": 12,
-   "activo": true,
-   "datos": {
-    "nombre": "Tucán",
-    "tipo": "familiar",
-    "capacidad": 3,
-    "camas": "Doble y sencilla",
-    "detalle": "Para familias pequeñas",
-    "descripcion": "Pensada para familias: espacio para todos y acceso directo a las zonas sociales de la finca.",
-    "precio": 70000,
-    "modo_precio": "persona",
-    "comodidades": [
-     "Baño privado con agua caliente",
-     "Ropa de cama y toallas",
-     "Wifi",
-     "Acceso a piscina y jacuzzi"
-    ],
-    "fotos": [
-     "/assets/img/fotos/habitacion-ventana.jpg",
-     "/assets/img/fotos/bano.jpg"
-    ],
-    "destacada": false
-   }
-  },
-  {
-   "id": "d11180f3-eb42-520f-a8e7-2b1c3caf9aa8",
-   "tipo": "habitaciones",
-   "orden": 13,
-   "activo": true,
-   "datos": {
-    "nombre": "Bahareque",
-    "tipo": "familiar",
-    "capacidad": 3,
-    "camas": "Doble y sencilla",
-    "detalle": "Para familias pequeñas",
-    "descripcion": "Pensada para familias: espacio para todos y acceso directo a las zonas sociales de la finca.",
-    "precio": 70000,
-    "modo_precio": "persona",
-    "comodidades": [
-     "Baño privado con agua caliente",
-     "Ropa de cama y toallas",
-     "Wifi",
-     "Acceso a piscina y jacuzzi"
-    ],
-    "fotos": [
-     "/assets/img/fotos/habitacion-ventana.jpg",
-     "/assets/img/fotos/bano.jpg"
-    ],
-    "destacada": false
-   }
-  },
-  {
    "id": "0d66a612-1ed1-5dc4-b5bd-02f56f6b4e97",
    "tipo": "habitaciones",
    "orden": 14,
    "activo": true,
    "datos": {
     "nombre": "Finca completa",
+    "grupo": "Finca completa",
     "tipo": "finca",
     "capacidad": 40,
     "camas": "14 habitaciones",

@@ -39,13 +39,14 @@
     return { valor: U.pesos(p), unidad: 'por noche' };
   }
 
-  function tarjetaHab(h, conDesayuno, pd) {
-    var pr = precioHab(h, conDesayuno, pd);
+  function cuantas(n) { return n + (n === 1 ? ' habitación' : ' habitaciones'); }
+  function tarjetaGrupo(g, conDesayuno, pd) {
+    var h = g.rep, pr = precioHab(h, conDesayuno, pd);
     var foto = (U.textoListas(h.fotos)[0]) || '';
     return '<a class="tarjeta nf-card nf-rv" href="/habitacion.html?h=' + encodeURIComponent(h.id) + '">' +
-      '<div class="foto nf-zoom" style="position:relative">' + (h.tipo && TIPOS_HAB[h.tipo] ? '<span class="sello">' + E(TIPOS_HAB[h.tipo]) + '</span>' : '') + img(foto, 'Habitación ' + h.nombre) + '</div>' +
-      '<div class="tarjeta__cuerpo"><h3 class="tarjeta__titulo">' + E(h.nombre) + '</h3>' +
-      '<p class="datos-mini">' + (h.capacidad ? '<span>Hasta ' + E(h.capacidad) + ' personas</span>' : '') + (h.camas ? '<span>' + E(h.camas) + '</span>' : '') + (h.detalle ? '<span>' + E(h.detalle) + '</span>' : '') + '</p>' +
+      '<div class="foto nf-zoom" style="position:relative">' + (h.tipo && TIPOS_HAB[h.tipo] ? '<span class="sello">' + E(TIPOS_HAB[h.tipo]) + '</span>' : '') + img(foto, g.nombre) + '</div>' +
+      '<div class="tarjeta__cuerpo"><h3 class="tarjeta__titulo">' + E(g.nombre) + '</h3>' +
+      '<p class="datos-mini">' + (h.capacidad ? '<span>Hasta ' + E(h.capacidad) + ' personas</span>' : '') + (h.camas ? '<span>' + E(h.camas) + '</span>' : '') + (g.total > 1 ? '<span>' + cuantas(g.total) + '</span>' : (h.detalle ? '<span>' + E(h.detalle) + '</span>' : '')) + '</p>' +
       '<div class="tarjeta__pie"><span><span class="precio">' + pr.valor + '</span> <span class="suave" style="font-size:13px">' + E(pr.unidad) + '</span></span><span class="flecha nf-flecha">Ver ' + FL + '</span></div></div></a>';
   }
 
@@ -148,10 +149,10 @@
       ll.addEventListener('change', function () { if (ll.value) { sa.min = sumarDias(ll.value, 1); if (!sa.value || sa.value <= ll.value) sa.value = sumarDias(ll.value, 1); } });
     }
     Promise.all([NF.coleccion('habitaciones'), S.ajustes]).then(function (r) {
-      var el = $('#inicio-habitaciones'), lista = r[0].filter(function (h) { return h.destacada; });
-      if (!lista.length) lista = r[0];
+      var el = $('#inicio-habitaciones'), grupos = U.agrupar(r[0]).filter(function (g) { return g.rep.tipo !== 'finca'; }), lista = grupos.filter(function (g) { return g.destacada; });
+      if (!lista.length) lista = grupos;
       if (!lista.length) return vacio(el, 'Pronto publicaremos las habitaciones.');
-      el.innerHTML = lista.slice(0, 3).map(function (h) { return tarjetaHab(h, false, r[1]['global.precio_desayuno']); }).join(''); listo(el);
+      el.innerHTML = lista.slice(0, 3).map(function (g) { return tarjetaGrupo(g, false, r[1]['global.precio_desayuno']); }).join(''); listo(el);
     }).catch(function (e) { fallo($('#inicio-habitaciones'), e); });
 
     NF.coleccion('experiencias').then(function (l) {
@@ -180,17 +181,17 @@
   PAGINAS.habitaciones = function () {
     var el = $('#lista-habitaciones'), filtro = 'todas', desayuno = false, lista = [], aj = {};
     function pintar() {
-      var vis = lista.filter(function (h) { return filtro === 'todas' || h.tipo === filtro; });
-      $('#conteo-habitaciones').textContent = vis.length === 1 ? '1 habitación' : vis.length + ' habitaciones';
+      var vis = lista.filter(function (g) { return filtro === 'todas' || g.rep.tipo === filtro; });
+      $('#conteo-habitaciones').textContent = vis.length === 1 ? '1 opción' : vis.length + ' opciones';
       if (!vis.length) return vacio(el, 'No hay habitaciones en esta categoría por ahora.');
-      el.innerHTML = vis.map(function (h) { return tarjetaHab(h, desayuno, aj['global.precio_desayuno']); }).join(''); listo(el);
+      el.innerHTML = vis.map(function (g) { return tarjetaGrupo(g, desayuno, aj['global.precio_desayuno']); }).join(''); listo(el);
     }
     Promise.all([NF.coleccion('habitaciones'), S.ajustes]).then(function (r) {
-      lista = r[0]; aj = r[1];
+      lista = U.agrupar(r[0]); aj = r[1];
       var pd = Number(aj['global.precio_desayuno']) || 0;
       $('#precio-desayuno').textContent = pd ? U.pesos(pd) : 'Por definir';
       if (!pd) $('#cambio-desayuno').hidden = true;
-      var tipos = [['todas', 'Todas']].concat(Object.keys(TIPOS_HAB).filter(function (t) { return lista.some(function (h) { return h.tipo === t; }); }).map(function (t) { return [t, TIPOS_HAB[t]]; }));
+      var tipos = [['todas', 'Todas']].concat(Object.keys(TIPOS_HAB).filter(function (t) { return lista.some(function (g) { return g.rep.tipo === t; }); }).map(function (t) { return [t, TIPOS_HAB[t]]; }));
       chips($('#filtros-habitaciones'), tipos, function (v) { filtro = v; pintar(); });
       interruptor($('#cambio-desayuno'), function (v) { desayuno = v; pintar(); });
       if (!lista.length) { $('#conteo-habitaciones').textContent = ''; return vacio(el, 'Pronto publicaremos las habitaciones.'); }
@@ -209,12 +210,15 @@
         $$('#contenido > section:not(:first-child)').forEach(function (s) { s.hidden = true; });
         return;
       }
-      document.title = h.nombre + ' · Finca Hotel Nuevo Futuro';
-      $('#ruta-nombre').textContent = h.nombre;
+      var g = U.grupoDe(h.id, habs) || { id: h.id, nombre: h.nombre, rep: h, miembros: [h], total: 1 };
+      h = g.rep;
+      var nombre = g.nombre;
+      document.title = nombre + ' · Finca Hotel Nuevo Futuro';
+      $('#ruta-nombre').textContent = nombre;
       $('#hab-etiqueta').textContent = TIPOS_HAB[h.tipo] || 'Habitación';
-      $('#hab-nombre').textContent = h.nombre;
+      $('#hab-nombre').textContent = nombre;
       $('#hab-descripcion').innerHTML = F(h.descripcion);
-      $('#hab-datos').innerHTML = [h.capacidad ? S.icono('personas', 18) + ' Hasta ' + E(h.capacidad) + ' personas' : '', h.camas ? S.icono('cama', 18) + ' ' + E(h.camas) : '', h.detalle ? S.icono('casa', 18) + ' ' + E(h.detalle) : '']
+      $('#hab-datos').innerHTML = [h.capacidad ? S.icono('personas', 18) + ' Hasta ' + E(h.capacidad) + ' personas' : '', h.camas ? S.icono('cama', 18) + ' ' + E(h.camas) : '', g.total > 1 ? S.icono('casa', 18) + ' ' + cuantas(g.total) + ' de este tipo' : (h.detalle ? S.icono('casa', 18) + ' ' + E(h.detalle) : '')]
         .filter(Boolean).map(function (t) { return '<li class="chip" style="display:inline-flex;align-items:center;gap:8px;cursor:default;border-color:rgba(251,249,244,.3);color:var(--papel)">' + t + '</li>'; }).join('');
 
       // Fotos
@@ -223,7 +227,7 @@
         var g = $('#hab-galeria');
         if (!fotos.length) { g.innerHTML = '<div class="foto foto--vacia" style="height:420px">Fotos pendientes</div>'; $('#hab-ant').hidden = $('#hab-sig').hidden = true; return; }
         var vis = []; for (var k = 0; k < Math.min(porVista, fotos.length); k++) vis.push(fotos[(i + k) % fotos.length]);
-        g.innerHTML = vis.map(function (src, k) { return '<div class="foto" style="height:clamp(320px,34vw,470px)"><img src="' + E(src) + '" alt="' + E(h.nombre) + ', foto ' + ((i + k) % fotos.length + 1) + '"></div>'; }).join('');
+        g.innerHTML = vis.map(function (src, k) { return '<div class="foto" style="height:clamp(320px,34vw,470px)"><img src="' + E(src) + '" alt="' + E(nombre) + ', foto ' + ((i + k) % fotos.length + 1) + '"></div>'; }).join('');
         $('#hab-contador').textContent = (i + 1) + ' / ' + fotos.length;
         $('#hab-miniaturas').innerHTML = fotos.map(function (src, k) { return '<button type="button" data-i="' + k + '" aria-label="Ver foto ' + (k + 1) + '" aria-pressed="' + (k === i) + '" style="width:64px;height:48px;padding:0;border:' + (k === i ? '2px solid var(--laton)' : '1px solid rgba(251,249,244,.3)') + ';background:none;cursor:pointer;overflow:hidden"><img src="' + E(src) + '" alt="" style="width:100%;height:100%;object-fit:cover"></button>'; }).join('');
       }
@@ -255,19 +259,19 @@
         var q = new URLSearchParams({ h: h.id }); if (n) { q.set('llegada', st.llegada); q.set('salida', st.salida); } q.set('adultos', st.huespedes);
         $('#r-ir').href = '/reservar.html?' + q.toString();
         $('#r-ir').textContent = n ? 'Reservar ' + n + (n === 1 ? ' noche' : ' noches') : 'Reservar';
-        $('#r-wa').href = S.waUrl(aj, 'Hola, quiero preguntar por la habitación ' + h.nombre + (n ? ' del ' + U.fechaCorta(st.llegada) + ' al ' + U.fechaCorta(st.salida) : '') + ' para ' + st.huespedes + ' personas.');
+        $('#r-wa').href = S.waUrl(aj, 'Hola, quiero preguntar por ' + nombre + (n ? ' del ' + U.fechaCorta(st.llegada) + ' al ' + U.fechaCorta(st.salida) : '') + ' para ' + st.huespedes + ' personas.');
       }
       contador($('#r-hu'), st.huespedes, 1, Number(h.capacidad) || 40, function (v) { st.huespedes = v; actualizar(); });
       interruptor($('#r-de'), function (v) { st.desayuno = v; actualizar(); });
       var cal = Calendario($('#hab-calendario'), { alCambiar: function (a, b) { st.llegada = a; st.salida = b; actualizar(); } });
       var desde = hoyIso();
-      NF.disponibilidad(desde, sumarDias(desde, 400)).then(function (l) { cal.fijarOcupados(U.diasOcupados(h.id, l, habs)); }).catch(function (e) { console.warn('Disponibilidad', e); });
+      NF.disponibilidad(desde, sumarDias(desde, 400)).then(function (l) { cal.fijarOcupados(U.diasOcupadosGrupo(g, l, habs)); }).catch(function (e) { console.warn('Disponibilidad', e); });
       actualizar();
 
       // Otras
-      var otras = habs.filter(function (x) { return x.id !== h.id; }).sort(function (a, b) { return (b.tipo === h.tipo) - (a.tipo === h.tipo); }).slice(0, 3);
+      var otras = U.agrupar(habs).filter(function (x) { return x.id !== g.id; }).sort(function (a, b) { return (b.rep.tipo === h.tipo) - (a.rep.tipo === h.tipo); }).slice(0, 3);
       var eo = $('#hab-otras');
-      if (otras.length) { eo.innerHTML = otras.map(function (x) { return tarjetaHab(x, false, pd); }).join(''); listo(eo); } else eo.closest('section').hidden = true;
+      if (otras.length) { eo.innerHTML = otras.map(function (x) { return tarjetaGrupo(x, false, pd); }).join(''); listo(eo); } else eo.closest('section').hidden = true;
     }).catch(function (e) { fallo($('#hab-galeria'), e); });
   };
 
@@ -471,7 +475,7 @@
   /* ---------- Reservar ---------- */
   PAGINAS.reservar = function () {
     var st = { llegada: params.get('llegada'), salida: params.get('salida'), adultos: Math.max(1, Math.min(40, Number(params.get('adultos')) || 2)), ninos: 0, mascota: false, desayuno: false, hab: null, habId: params.get('h') };
-    var habs = [], aj = {}, pd = 0, disp = [];
+    var habs = [], aj = {}, pd = 0, disp = [], filasOpciones = [];
     var hoy = hoyIso();
     if (!(st.llegada >= hoy && st.salida > st.llegada)) { st.llegada = null; st.salida = null; }
 
@@ -485,7 +489,7 @@
     function resumen() {
       var n = st.llegada && st.salida ? U.noches(st.llegada, st.salida) : 0;
       var h = st.hab;
-      $('#resumen-nombre').textContent = h ? h.nombre : 'Tu estadía';
+      $('#resumen-nombre').textContent = st.grupo ? st.grupo.nombre : h ? h.nombre : 'Tu estadía';
       var foto = h && U.textoListas(h.fotos)[0]; if (foto) $('#resumen-foto').src = foto;
       $('#resumen-datos').innerHTML = '<div><dt>Llegada</dt><dd>' + (st.llegada ? U.fechaCorta(st.llegada) : '—') + '</dd></div><div><dt>Salida</dt><dd>' + (st.salida ? U.fechaCorta(st.salida) : '—') + '</dd></div>' +
         (n ? '<div><dt>Noches</dt><dd>' + n + '</dd></div>' : '') +
@@ -510,22 +514,27 @@
       NF.disponibilidad(st.llegada, st.salida).then(function (l) {
         disp = l;
         var noches = U.rangoDias(st.llegada, st.salida);
-        var filas = habs.map(function (h) {
-          var oc = U.diasOcupados(h.id, disp, habs), libre = noches.every(function (f) { return !oc[f]; });
-          var cabe = !h.capacidad || huespedes() <= Number(h.capacidad);
-          return { h: h, ok: libre && cabe, motivo: !libre ? 'Sin cupo en esas fechas' : !cabe ? 'Máximo ' + h.capacidad + ' personas' : '' };
+        var filas = U.agrupar(habs).map(function (g) {
+          var cap = Number(g.rep.capacidad) || 0, cabe = !cap || huespedes() <= cap;
+          var libres = g.miembros.filter(function (h) {
+            var oc = U.diasOcupados(h.id, disp, habs), c = Number(h.capacidad) || 0;
+            return (!c || huespedes() <= c) && noches.every(function (f) { return !oc[f]; });
+          });
+          return { g: g, libres: libres, ok: libres.length > 0, motivo: !cabe ? 'Máximo ' + cap + ' personas' : 'Sin cupo en esas fechas' };
         }).sort(function (a, b) { return b.ok - a.ok; });
         if (!filas.length) { el.innerHTML = '<p class="vacio">Aún no hay habitaciones publicadas. Escríbenos por WhatsApp.</p>'; return; }
-        if (st.hab && !filas.some(function (f) { return f.ok && f.h.id === st.hab.id; })) st.hab = null;
-        if (!st.hab && st.habId) { var pre = filas.filter(function (f) { return f.ok && f.h.id === st.habId; })[0]; if (pre) st.hab = pre.h; }
+        var elegida = st.grupo ? filas.filter(function (f) { return f.ok && f.g.id === st.grupo.id; })[0] : null;
+        if (!elegida && !st.grupo && st.habId) elegida = filas.filter(function (f) { return f.ok && f.g.miembros.some(function (h) { return h.id === st.habId; }); })[0];
+        if (elegida) { st.grupo = elegida.g; st.libres = elegida.libres; st.hab = elegida.libres[0]; } else { st.grupo = null; st.libres = []; st.hab = null; }
+        filasOpciones = filas;
         var n = noches.length;
         el.innerHTML = filas.map(function (f) {
-          var h = f.h, pr = precioHab(h, false, pd), tot = Number(h.precio) ? U.pesos(U.calcularTotal(h, n, huespedes(), st.desayuno, pd)) : 'Por confirmar';
-          var foto = U.textoListas(h.fotos)[0];
-          return '<button type="button" class="opcion" role="radio" data-id="' + E(h.id) + '" aria-checked="' + (st.hab && st.hab.id === h.id) + '"' + (f.ok ? '' : ' disabled') + '>' +
+          var g = f.g, h = g.rep, pr = precioHab(h, false, pd), tot = Number(h.precio) ? U.pesos(U.calcularTotal(h, n, huespedes(), st.desayuno, pd)) : 'Por confirmar';
+          var foto = U.textoListas(h.fotos)[0], quedan = g.total > 1 && f.ok ? '<span>' + (f.libres.length === 1 ? 'Queda 1' : 'Quedan ' + f.libres.length) + '</span>' : '';
+          return '<button type="button" class="opcion" role="radio" data-id="' + E(g.id) + '" aria-checked="' + (!!st.grupo && st.grupo.id === g.id) + '"' + (f.ok ? '' : ' disabled') + '>' +
             (foto ? '<img src="' + E(foto) + '" alt="">' : '') +
-            '<div><span class="etiqueta" style="color:var(--laton-oscuro)">' + E(TIPOS_HAB[h.tipo] || 'Habitación') + '</span><span class="titulo-m" style="font-size:28px">' + E(h.nombre) + '</span>' +
-            '<span class="datos-mini">' + (h.capacidad ? '<span>Hasta ' + E(h.capacidad) + ' personas</span>' : '') + (h.camas ? '<span>' + E(h.camas) + '</span>' : '') + '</span>' +
+            '<div><span class="etiqueta" style="color:var(--laton-oscuro)">' + E(TIPOS_HAB[h.tipo] || 'Habitación') + '</span><span class="titulo-m" style="font-size:28px">' + E(g.nombre) + '</span>' +
+            '<span class="datos-mini">' + (h.capacidad ? '<span>Hasta ' + E(h.capacidad) + ' personas</span>' : '') + (h.camas ? '<span>' + E(h.camas) + '</span>' : '') + quedan + '</span>' +
             '<span style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:6px"><span class="suave" style="font-size:13.5px">' + pr.valor + ' ' + E(pr.unidad) + '</span>' +
             (f.ok ? '<b>' + tot + ' · ' + n + (n === 1 ? ' noche' : ' noches') + '</b>' : '<b style="color:#A6452F">' + E(f.motivo) + '</b>') + '</span></div></button>';
         }).join('');
@@ -535,7 +544,8 @@
     }
     $('#res-opciones').addEventListener('click', function (e) {
       var b = e.target.closest('.opcion'); if (!b || b.disabled) return;
-      st.hab = habs.filter(function (h) { return h.id === b.getAttribute('data-id'); })[0];
+      var f = filasOpciones.filter(function (x) { return x.g.id === b.getAttribute('data-id'); })[0]; if (!f) return;
+      st.grupo = f.g; st.libres = f.libres; st.hab = f.libres[0];
       $$('#res-opciones .opcion').forEach(function (x) { x.setAttribute('aria-checked', String(x === b)); });
       $('#ir-paso-3').disabled = false; resumen();
     });
@@ -549,12 +559,18 @@
       if (!form.checkValidity()) { form.reportValidity(); return; }
       var d = {}; new FormData(form).forEach(function (v, k) { d[k] = v; });
       var btn = $('#res-enviar'), err = $('#res-error'); btn.disabled = true; btn.textContent = 'Enviando…'; err.hidden = true;
+      var candidatos = (st.libres && st.libres.length) ? st.libres : [st.hab];
       var datos = { habitacion_id: st.hab.id, llegada: st.llegada, salida: st.salida, adultos: st.adultos, ninos: st.ninos, mascota: st.mascota, desayuno: st.desayuno,
         nombre: d.nombre, telefono: d.telefono, correo: d.correo, ciudad: d.ciudad || '', hora_llegada: d.hora_llegada, comentarios: d.comentarios || '' };
-      NF.crearReserva(datos).then(function (r) {
+      // Si otra persona tomó esa habitación un momento antes, se intenta con la siguiente libre del mismo tipo
+      function intentar(k) {
+        datos.habitacion_id = candidatos[k].id;
+        return NF.crearReserva(datos).catch(function (x) { if (/ya no están libres/i.test(x.message || '') && k + 1 < candidatos.length) return intentar(k + 1); throw x; });
+      }
+      intentar(0).then(function (r) {
         $('#res-codigo').textContent = r.codigo;
         var txt = 'Hola, acabo de enviar la reserva ' + r.codigo + ' desde la web.\n' +
-          'Habitación: ' + st.hab.nombre + '\nLlegada: ' + U.fechaCorta(st.llegada) + '\nSalida: ' + U.fechaCorta(st.salida) +
+          'Habitación: ' + (st.grupo ? st.grupo.nombre : st.hab.nombre) + '\nLlegada: ' + U.fechaCorta(st.llegada) + '\nSalida: ' + U.fechaCorta(st.salida) +
           '\nHuéspedes: ' + st.adultos + ' adultos' + (st.ninos ? ', ' + st.ninos + ' niños' : '') + (st.mascota ? '\nViajo con mascota' : '') + (st.desayuno ? '\nCon desayuno' : '') +
           (r.total ? '\nTotal estimado: ' + U.pesos(r.total) : '') + '\nNombre: ' + d.nombre;
         var wa = S.waUrl(aj, txt), a = $('#res-wa');
@@ -571,8 +587,9 @@
       if (st.habId) {
         var h = habs.filter(function (x) { return x.id === st.habId; })[0];
         if (h) {
-          st.hab = h;
-          NF.disponibilidad(hoy, sumarDias(hoy, 400)).then(function (l) { cal.fijarOcupados(U.diasOcupados(h.id, l, habs)); resumen(); });
+          var g0 = U.grupoDe(h.id, habs);
+          st.hab = h; st.grupo = g0;
+          NF.disponibilidad(hoy, sumarDias(hoy, 400)).then(function (l) { cal.fijarOcupados(g0 ? U.diasOcupadosGrupo(g0, l, habs) : U.diasOcupados(h.id, l, habs)); resumen(); });
         }
       }
       resumen();

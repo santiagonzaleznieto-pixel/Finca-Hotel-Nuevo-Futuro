@@ -411,7 +411,7 @@
     var esq = NF.ESQUEMAS[tipo];
     function op(k) { var c = esq.campos.filter(function (x) { return x.k === k; })[0]; return c && c.op ? etiqueta(c.op, it[k]) : it[k]; }
     switch (tipo) {
-      case 'habitaciones': return [op('tipo'), it.capacidad ? it.capacidad + ' personas' : '', Number(it.precio) ? U.pesos(it.precio) + (it.modo_precio === 'persona' ? ' / persona' : ' / noche') : 'Sin precio', it.destacada ? '★ En el Inicio' : ''].filter(Boolean).join(' · ');
+      case 'habitaciones': return [it.grupo, op('tipo'), it.capacidad ? it.capacidad + ' personas' : '', Number(it.precio) ? U.pesos(it.precio) + (it.modo_precio === 'persona' ? ' / persona' : ' / noche') : 'Sin precio', it.destacada ? '★ En el Inicio' : ''].filter(Boolean).join(' · ');
       case 'experiencias': return [it.hora, it.destacada ? '★ En el Inicio' : ''].filter(Boolean).join(' · ') || String(it.descripcion || '').slice(0, 90);
       case 'planes': return (Number(it.precio) ? U.pesos(it.precio) : 'Sin precio') + ' ' + (it.unidad || '');
       case 'temporadas': return it.fechas || '';

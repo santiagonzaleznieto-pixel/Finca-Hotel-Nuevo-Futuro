@@ -17,24 +17,23 @@ def item(tipo, i, datos, activo=True):
 
 COMODIDADES = ['Baño privado con agua caliente', 'Ropa de cama y toallas', 'Wifi', 'Acceso a piscina y jacuzzi']
 hab = []
-def h(nombre, tipo, cap, camas, detalle, precio, modo, fotos, dest=False, desc=None):
+def h(nombre, grupo, tipo, cap, camas, detalle, precio, modo, fotos, dest=False, desc=None):
     if desc is None:
         desc = {'pareja': 'Una habitación tranquila para dos, con todo lo necesario para descansar después de un día de piscina y montaña.',
                 'familiar': 'Pensada para familias: espacio para todos y acceso directo a las zonas sociales de la finca.',
                 'grupo': 'La habitación más amplia de la finca, ideal para grupos de amigos o familias grandes.',
                 'finca': 'Las 14 habitaciones y todas las zonas sociales para tu grupo, sin compartir con nadie más.'}[tipo]
-    hab.append({'nombre': nombre, 'tipo': tipo, 'capacidad': cap, 'camas': camas, 'detalle': detalle, 'descripcion': desc,
+    hab.append({'nombre': nombre, 'grupo': grupo, 'tipo': tipo, 'capacidad': cap, 'camas': camas, 'detalle': detalle, 'descripcion': desc,
                 'precio': precio, 'modo_precio': modo, 'comodidades': COMODIDADES if tipo != 'finca' else ['14 habitaciones', 'Piscina y jacuzzi climatizado', 'Kiosco con cocina y asador', 'Zona de fogata y juegos'],
                 'fotos': [F(x) for x in fotos], 'destacada': dest})
 Q, FA, V, B = 'habitacion-queen', 'habitacion-familiar', 'habitacion-ventana', 'bano'
-h('Colibrí', 'pareja', 2, 'Cama queen', '30 m² · vista a la colina', 200000, 'noche', [Q, B, 'jardin-montana'], True)
-h('Barranquero', 'familiar', 5, 'Doble y camarote', 'Para familias', 70000, 'persona', [FA, B, 'corredor'], True)
-h('Guadua', 'grupo', 8, 'Doble y 3 camarotes', 'La más amplia', 70000, 'persona', [V, FA, B], True)
-for n, c in [('Yarumo', 'Cama doble'), ('Orquídea', 'Cama doble'), ('Toche', 'Cama doble'), ('Palma de cera', 'Cama queen'), ('Mirla', 'Cama doble'), ('Heliconia', 'Cama doble'), ('Carriquí', 'Cama doble'), ('Guayacán', 'Cama doble')]:
-    h(n, 'pareja', 2, c, 'Para dos', 200000, 'noche', [Q, B])
-for n in ['Cafeto', 'Tucán', 'Bahareque']:
-    h(n, 'familiar', 3, 'Doble y sencilla', 'Para familias pequeñas', 70000, 'persona', [V, B])
-h('Finca completa', 'finca', 40, '14 habitaciones', 'Hasta 40 personas, en exclusiva', 2800000, 'noche', ['piscina-casa', 'casa-cesped', 'kiosco'])
+# Datos de ejemplo: 14 habitaciones en 3 tipos, más la finca completa. La finca los reemplaza desde el panel.
+for i, n in enumerate(['Colibrí', 'Yarumo', 'Orquídea', 'Toche', 'Palma de cera', 'Mirla', 'Heliconia', 'Carriquí', 'Guayacán']):
+    h(n, 'Habitación doble', 'pareja', 2, 'Cama doble o queen', 'Baño privado', 200000, 'noche', [Q, B, 'jardin-montana'], i == 0)
+for i, n in enumerate(['Barranquero', 'Cafeto', 'Tucán', 'Bahareque']):
+    h(n, 'Habitación familiar', 'familiar', 4, 'Cama doble y camarote', 'Baño privado', 70000, 'persona', [FA, B, 'corredor'], i == 0)
+h('Guadua', 'Habitación de grupo', 'grupo', 8, 'Doble y 3 camarotes', 'La más amplia', 70000, 'persona', [V, FA, B], True)
+h('Finca completa', 'Finca completa', 'finca', 40, '14 habitaciones', 'Hasta 40 personas, en exclusiva', 2800000, 'noche', ['piscina-casa', 'casa-cesped', 'kiosco'])
 
 colecciones = [item('habitaciones', i, d) for i, d in enumerate(hab)]
 
