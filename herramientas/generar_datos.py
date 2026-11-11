@@ -56,8 +56,8 @@ lote('planes', [
 ])
 lote('temporadas', [
     {'nombre': 'Regular', 'fechas': 'Resto del año', 'persona': '$70.000', 'pareja': '$200.000', 'finca': '$2.800.000'},
-    {'nombre': 'Alta', 'fechas': 'Diciembre, enero, Semana Santa y mitad de año', 'persona': 'Por definir', 'pareja': 'Por definir', 'finca': 'Por definir'},
-    {'nombre': 'Puentes', 'fechas': 'Fines de semana con festivo', 'persona': 'Por definir', 'pareja': 'Por definir', 'finca': 'Por definir'},
+    {'nombre': 'Alta', 'fechas': 'Diciembre, enero, Semana Santa y mitad de año', 'persona': '', 'pareja': '', 'finca': ''},
+    {'nombre': 'Puentes', 'fechas': 'Fines de semana con festivo', 'persona': '', 'pareja': '', 'finca': ''},
 ])
 lote('eventos', [
     {'titulo': 'Cumpleaños', 'descripcion': 'Fogata, asado y torta en el kiosco', 'foto': F('ig-mesa-postres')},
@@ -68,7 +68,7 @@ lote('eventos', [
     {'titulo': 'Bodas', 'descripcion': 'Ceremonia en el jardín y fiesta en el salón', 'foto': F('ig-boda-candelabro')},
 ])
 lote('espacios', [
-    {'nombre': 'Kiosco con cocina', 'detalle': 'Aforo por confirmar'}, {'nombre': 'Salón del kiosco', 'detalle': 'Aforo por confirmar'},
+    {'nombre': 'Kiosco con cocina', 'detalle': ''}, {'nombre': 'Salón del kiosco', 'detalle': ''},
     {'nombre': 'Zona de piscina', 'detalle': 'Ideal para pasadías'}, {'nombre': 'Zona de fogata', 'detalle': 'Para cerrar la noche'},
 ])
 lote('instalaciones', [
@@ -82,8 +82,8 @@ lote('instalaciones', [
     {'nombre': 'Parqueadero', 'descripcion': 'Dentro de la finca, sin costo para huéspedes.'},
 ])
 lote('normas', [
-    {'titulo': 'Horario de silencio', 'detalle': 'Por definir'}, {'titulo': 'Piscina', 'detalle': 'Niños siempre con un adulto'},
-    {'titulo': 'Mascotas', 'detalle': 'Bienvenidas; avísanos al reservar'}, {'titulo': 'Visitantes', 'detalle': 'Por definir'},
+    {'titulo': 'Horario de silencio', 'detalle': ''}, {'titulo': 'Piscina', 'detalle': 'Niños siempre con un adulto'},
+    {'titulo': 'Mascotas', 'detalle': 'Bienvenidas; avísanos al reservar'}, {'titulo': 'Visitantes', 'detalle': ''},
     {'titulo': 'Menores de edad', 'detalle': 'Con documento y acompañados por sus padres'},
 ])
 lote('lugares', [
@@ -104,7 +104,7 @@ gal = [('Piscina y casa principal','agua','piscina-casa'),('Habitación queen','
 lote('galeria', [{'titulo': a, 'categoria': b, 'foto': F(c)} for a, b, c in gal])
 lote('preguntas', [
     {'tema': 'reservas', 'pregunta': '¿Cómo se paga la reserva?', 'respuesta': 'Con un anticipo por transferencia o Nequi para confirmar; el saldo se paga al llegar. El porcentaje del anticipo lo confirma la finca.'},
-    {'tema': 'reservas', 'pregunta': '¿Puedo cancelar o cambiar la fecha?', 'respuesta': 'Por definir: la política de cancelación y cambios la publica la finca desde el panel.'},
+    {'tema': 'reservas', 'pregunta': '¿Puedo cancelar o cambiar la fecha?', 'respuesta': ''},
     {'tema': 'reservas', 'pregunta': '¿Los precios incluyen impuestos?', 'respuesta': 'Sí. Las tarifas por noche incluyen el impuesto y el seguro hotelero.'},
     {'tema': 'reservas', 'pregunta': '¿Por qué reservar directo?', 'respuesta': 'Porque no pagas comisiones de terceros y hablas directamente con la finca.'},
     {'tema': 'estadia', 'pregunta': '¿A qué hora es la entrada y la salida?', 'respuesta': 'La entrada es desde las 3:00 p. m. La hora de salida la confirma la finca.'},
@@ -126,7 +126,7 @@ ajustes = {
     'global.telefono': '', 'global.correo': '', 'global.direccion': 'Km 3 vía Armenia–Circasia, frente al Retorno Colillas',
     'global.maps_url': 'https://www.google.com/maps/search/?api=1&query=Finca%20Hotel%20Nuevo%20Futuro%20Circasia',
     'global.maps_embed': '', 'global.instagram': 'https://www.instagram.com/fincahotelnuevofuturo', 'global.facebook': '',
-    'global.horario': '', 'global.hora_entrada': '3:00 p. m.', 'global.hora_salida': 'Por definir', 'global.anticipo': 'Por definir',
+    'global.horario': '', 'global.hora_entrada': '3:00 p. m.', 'global.hora_salida': '', 'global.anticipo': '',
     'global.precio_desayuno': '12000', 'global.politica_cancelacion': '', 'global.rnt': '',
 }
 

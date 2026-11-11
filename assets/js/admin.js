@@ -165,6 +165,35 @@
   }
   var AVISO_PRUEBA = NF.modo === 'prueba' ? '<p class="aviso aviso--prueba"><b>Modo prueba:</b> los cambios y las reservas se guardan solo en este navegador; los visitantes no los ven. Para trabajar en serio, conecta Supabase (ver <a href="#/ayuda">Modo prueba y ayuda</a>).</p>' : '';
 
+  /* ---------- Lo que falta por completar ---------- */
+  var RELLENO = /^\s*(por (definir|confirmar|publicar|registrar)|pendiente)\.?\s*$/i;
+  function falta(v) { v = String(v == null ? '' : v); return !v.trim() || RELLENO.test(v); }
+  function pendientes() {
+    var tipos = ['habitaciones', 'experiencias', 'eventos', 'galeria', 'lugares', 'temporadas', 'normas', 'espacios', 'preguntas', 'opiniones'];
+    return Promise.all([ajustes(true), A.ajustesGuardados()].concat(tipos.map(function (t) { return A.listar(t); }))).then(function (x) {
+      var aj = x[0], guardados = x[1], col = {}; tipos.forEach(function (t, i) { col[t] = x[i + 2]; });
+      var lista = [], datos = [];
+      [['global.whatsapp', 'WhatsApp'], ['global.telefono', 'teléfono'], ['global.correo', 'correo'], ['global.horario', 'horario de atención'], ['global.hora_salida', 'hora de salida'],
+       ['global.anticipo', 'anticipo'], ['global.politica_cancelacion', 'política de cancelación'], ['global.rnt', 'número de RNT']].forEach(function (c) { if (falta(aj[c[0]])) datos.push(c[1]); });
+      if (datos.length) lista.push(['Datos generales sin llenar: ' + datos.join(', ') + '. Mientras falten, esas líneas no se muestran en el sitio.', '#/datos']);
+      var temp = col.temporadas.filter(function (t) { return t.activo && falta(t.persona) && falta(t.pareja) && falta(t.finca); });
+      if (temp.length) lista.push(['Temporadas sin precios (no se muestran): ' + temp.map(function (t) { return t.nombre; }).join(', ') + '.', '#/c/temporadas']);
+      var normas = col.normas.filter(function (n) { return n.activo && falta(n.detalle); });
+      if (normas.length) lista.push(['Normas sin detalle (no se muestran): ' + normas.map(function (n) { return n.titulo; }).join(', ') + '.', '#/c/normas']);
+      var esp = col.espacios.filter(function (e) { return e.activo && falta(e.detalle); });
+      if (esp.length) lista.push(['Espacios sin aforo o detalle: ' + esp.map(function (e) { return e.nombre; }).join(', ') + '.', '#/c/espacios']);
+      var preg = col.preguntas.filter(function (q) { return q.activo && falta(q.respuesta); });
+      if (preg.length) lista.push(['Preguntas sin respuesta (no se muestran): ' + preg.map(function (q) { return q.pregunta; }).join(' · ') + '.', '#/c/preguntas']);
+      if (!col.opiniones.some(function (o) { return o.activo; })) lista.push(['Aún no hay opiniones de huéspedes; la sección del Inicio queda oculta hasta que agregues alguna real.', '#/c/opiniones']);
+      if (falta(guardados['la-finca.casa_texto_2'])) lista.push(['La historia de la finca (página La finca) está vacía.', '#/textos']);
+      if (falta(guardados['contacto.datos_texto'])) lista.push(['Revisar el texto de tratamiento de datos con la razón social, el NIT y el contacto del responsable.', '#/textos']);
+      var prueba = {}; tipos.forEach(function (t) { col[t].forEach(function (it) { [it.foto].concat(U.textoListas(it.fotos)).forEach(function (f) { if (f && f.indexOf('/assets/img/fotos/') === 0) prueba[f] = 1; }); }); });
+      var np = Object.keys(prueba).length;
+      if (np) lista.push([np + ' fotos siguen siendo las de prueba (tomadas de internet y mejoradas). Reemplázalas por las originales de la finca en cada sección.', '#/c/habitaciones']);
+      return lista;
+    });
+  }
+
   /* ---------- Resumen ---------- */
   RUTAS.resumen = function () {
     Promise.all([A.reservas(), A.solicitudes()]).then(function (r) {
@@ -179,9 +208,15 @@
         '<div class="cuadros"><a class="cuadro" href="#/reservas"><b>' + pend.length + '</b><span>Reservas por confirmar</span></a><a class="cuadro" href="#/calendario"><b>' + llegan.length + '</b><span>Llegadas en los próximos 7 días</span></a>' +
         '<a class="cuadro" href="#/calendario"><b>' + dentro.reduce(function (s, x) { return s + (Number(x.adultos) || 0) + (Number(x.ninos) || 0); }, 0) + '</b><span>Huéspedes en la finca hoy</span></a><a class="cuadro" href="#/solicitudes"><b>' + nuevas.length + '</b><span>Solicitudes sin responder</span></a></div>' +
         '<section class="caja"><h2>Próximas estadías</h2>' + (prox.length ? tablaReservas(prox) : '<p class="vacio">No hay estadías próximas.</p>') + '</section>' +
+        '<section class="caja" id="caja-pendientes" hidden><h2>Falta por completar</h2><ul id="lista-pendientes" style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:14.5px"></ul></section>' +
         (nuevas.length ? '<section class="caja"><h2>Solicitudes nuevas</h2><div class="tarjetas">' + nuevas.slice(0, 4).map(tarjetaSolicitud).join('') + '</div></section>' : '');
       enlazarTablaReservas(res);
       enlazarSolicitudes();
+      pendientes().then(function (l) {
+        if (!l.length || !$('#lista-pendientes')) return;
+        $('#lista-pendientes').innerHTML = l.map(function (p) { return '<li>' + E(p[0]) + ' <a href="' + p[1] + '">Completar</a></li>'; }).join('');
+        $('#caja-pendientes').hidden = false;
+      }).catch(function (e) { console.warn(e); });
     }).catch(mal);
   };
 

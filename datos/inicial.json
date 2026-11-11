@@ -11,8 +11,8 @@
   "global.facebook": "",
   "global.horario": "",
   "global.hora_entrada": "3:00 p. m.",
-  "global.hora_salida": "Por definir",
-  "global.anticipo": "Por definir",
+  "global.hora_salida": "",
+  "global.anticipo": "",
   "global.precio_desayuno": "12000",
   "global.politica_cancelacion": "",
   "global.rnt": ""
@@ -628,9 +628,9 @@
    "datos": {
     "nombre": "Alta",
     "fechas": "Diciembre, enero, Semana Santa y mitad de año",
-    "persona": "Por definir",
-    "pareja": "Por definir",
-    "finca": "Por definir"
+    "persona": "",
+    "pareja": "",
+    "finca": ""
    }
   },
   {
@@ -641,9 +641,9 @@
    "datos": {
     "nombre": "Puentes",
     "fechas": "Fines de semana con festivo",
-    "persona": "Por definir",
-    "pareja": "Por definir",
-    "finca": "Por definir"
+    "persona": "",
+    "pareja": "",
+    "finca": ""
    }
   },
   {
@@ -719,7 +719,7 @@
    "activo": true,
    "datos": {
     "nombre": "Kiosco con cocina",
-    "detalle": "Aforo por confirmar"
+    "detalle": ""
    }
   },
   {
@@ -729,7 +729,7 @@
    "activo": true,
    "datos": {
     "nombre": "Salón del kiosco",
-    "detalle": "Aforo por confirmar"
+    "detalle": ""
    }
   },
   {
@@ -839,7 +839,7 @@
    "activo": true,
    "datos": {
     "titulo": "Horario de silencio",
-    "detalle": "Por definir"
+    "detalle": ""
    }
   },
   {
@@ -869,7 +869,7 @@
    "activo": true,
    "datos": {
     "titulo": "Visitantes",
-    "detalle": "Por definir"
+    "detalle": ""
    }
   },
   {
@@ -1193,7 +1193,7 @@
    "datos": {
     "tema": "reservas",
     "pregunta": "¿Puedo cancelar o cambiar la fecha?",
-    "respuesta": "Por definir: la política de cancelación y cambios la publica la finca desde el panel."
+    "respuesta": ""
    }
   },
   {

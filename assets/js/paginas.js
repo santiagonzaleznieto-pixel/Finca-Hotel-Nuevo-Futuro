@@ -8,6 +8,7 @@
   'use strict';
   var NF = window.NF, S = window.NFsitio, U = NF.util;
   var E = U.escapar, F = U.formatear;
+  var lleno = function (v) { return !S.sinDato(v); };
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var FL = S.icono('flecha', 18);
@@ -32,7 +33,7 @@
 
   function precioHab(h, conDesayuno, precioDesayuno) {
     var p = Number(h.precio) || 0;
-    if (!p) return { valor: 'Por confirmar', unidad: '' };
+    if (!p) return { valor: 'Consultar precio', unidad: '' };
     var pd = Number(precioDesayuno) || 0;
     if (h.modo_precio === 'persona') return { valor: U.pesos(p + (conDesayuno ? pd : 0)), unidad: 'por persona / noche' + (conDesayuno ? ' con desayuno' : '') };
     if (conDesayuno && pd) return { valor: U.pesos(p + pd * (Number(h.capacidad) || 1)), unidad: 'por noche · desayuno para ' + (h.capacidad || 1) };
@@ -188,7 +189,7 @@
     Promise.all([NF.coleccion('habitaciones'), S.ajustes]).then(function (r) {
       lista = U.agrupar(r[0]); aj = r[1];
       var pd = Number(aj['global.precio_desayuno']) || 0;
-      $('#precio-desayuno').textContent = pd ? U.pesos(pd) : 'Por definir';
+      if (pd) $('#precio-desayuno').textContent = U.pesos(pd); else $('#precio-desayuno').closest('[data-fila]').hidden = true;
       if (!pd) $('#cambio-desayuno').hidden = true;
       var tipos = [['todas', 'Todas']].concat(Object.keys(TIPOS_HAB).filter(function (t) { return lista.some(function (g) { return g.rep.tipo === t; }); }).map(function (t) { return [t, TIPOS_HAB[t]]; }));
       chips($('#filtros-habitaciones'), tipos, function (v) { filtro = v; pintar(); });
@@ -237,7 +238,7 @@
       pintarFotos();
 
       var com = U.textoListas(h.comodidades);
-      $('#hab-comodidades').innerHTML = com.length ? com.map(function (c) { return '<li>' + S.icono('check', 18) + F(c) + '</li>'; }).join('') : '<li>Comodidades por publicar</li>';
+      if (com.length) $('#hab-comodidades').innerHTML = com.map(function (c) { return '<li>' + S.icono('check', 18) + F(c) + '</li>'; }).join(''); else $('#hab-comodidades').parentElement.hidden = true;
 
       // Reserva lateral
       var pd = Number(aj['global.precio_desayuno']) || 0, st = { llegada: null, salida: null, huespedes: Math.min(2, Number(h.capacidad) || 2), desayuno: false };
@@ -313,7 +314,7 @@
       el.innerHTML = l.map(function (x) { return '<article>' + S.icono(iconoPara(x.nombre), 34) + '<h3>' + E(x.nombre) + '</h3><p>' + F(x.descripcion) + '</p></article>'; }).join('');
     }).catch(function (e) { fallo($('#finca-instalaciones'), e); });
     NF.coleccion('normas').then(function (l) {
-      var el = $('#finca-normas');
+      var el = $('#finca-normas'); l = l.filter(function (x) { return lleno(x.detalle); });
       if (!l.length) { el.closest('section').hidden = true; return; }
       el.innerHTML = l.map(function (x) { return '<div><dt>' + E(x.titulo) + '</dt><dd>' + F(x.detalle) + '</dd></div>'; }).join('');
     }).catch(function (e) { fallo($('#finca-normas'), e); });
@@ -348,7 +349,7 @@
     NF.coleccion('espacios').then(function (l) {
       var el = $('#eventos-espacios');
       if (!l.length) return vacio(el, 'Pronto publicaremos los espacios.');
-      el.innerHTML = l.map(function (x) { return '<div><dt>' + E(x.nombre) + '</dt><dd>' + F(x.detalle) + '</dd></div>'; }).join('');
+      el.innerHTML = l.map(function (x) { return '<div><dt>' + E(x.nombre) + '</dt>' + (lleno(x.detalle) ? '<dd>' + F(x.detalle) + '</dd>' : '') + '</div>'; }).join('');
     }).catch(function (e) { fallo($('#eventos-espacios'), e); });
     var f = $('#form-evento');
     f.fecha.min = hoyIso();
@@ -381,9 +382,10 @@
     }).catch(function (e) { fallo($('#planes-lista'), e); });
     interruptor($('#planes-desayuno'), function (v) { desayuno = v; pintar(); });
     NF.coleccion('temporadas').then(function (l) {
-      var el = $('#planes-temporadas');
+      var el = $('#planes-temporadas'), c = function (v) { return lleno(v) ? E(v) : '—'; };
+      l = l.filter(function (t) { return lleno(t.persona) || lleno(t.pareja) || lleno(t.finca); });
       if (!l.length) { el.closest('section').hidden = true; return; }
-      el.innerHTML = l.map(function (t) { return '<tr><th scope="row">' + E(t.nombre) + '</th><td>' + E(t.fechas) + '</td><td>' + E(t.persona) + '</td><td>' + E(t.pareja) + '</td><td>' + E(t.finca) + '</td></tr>'; }).join('');
+      el.innerHTML = l.map(function (t) { return '<tr><th scope="row">' + E(t.nombre) + '</th><td>' + c(t.fechas) + '</td><td>' + c(t.persona) + '</td><td>' + c(t.pareja) + '</td><td>' + c(t.finca) + '</td></tr>'; }).join('');
     }).catch(function (e) { console.warn(e); });
   };
 
@@ -458,6 +460,7 @@
       b.setAttribute('aria-expanded', String(!abierta)); b.closest('.acordeon > div').classList.toggle('abierta', !abierta);
     });
     NF.coleccion('preguntas').then(function (l) {
+      l = l.filter(function (x) { return lleno(x.respuesta); });
       todas = l;
       var temas = [['todas', 'Todas']].concat(Object.keys(TEMAS).filter(function (t) { return l.some(function (x) { return x.tema === t; }); }).map(function (t) { return [t, TEMAS[t]]; }));
       chips($('#preguntas-filtros'), temas, pintar);

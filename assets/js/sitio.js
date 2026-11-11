@@ -54,7 +54,7 @@
       '<div class="col"><h3>Contacto</h3><a class="nf-lnk" href="/ubicacion.html" data-global="global.direccion"></a><a class="nf-lnk" data-wa href="/contacto.html">WhatsApp <span data-global="global.whatsapp_visible"></span></a><a class="nf-lnk" data-correo href="/contacto.html" data-global="global.correo"></a><span data-global="global.horario"></span></div>' +
       '<div class="col"><h3>La finca</h3><a class="nf-lnk" href="/preguntas.html">Preguntas frecuentes</a><a class="nf-lnk" href="/planes.html#condiciones">Condiciones y cancelación</a><a class="nf-lnk" href="/contacto.html#datos">Tratamiento de datos</a><a class="nf-lnk" data-red="global.instagram" href="#" hidden>Instagram</a><a class="nf-lnk" data-red="global.facebook" href="#" hidden>Facebook</a></div>' +
       '</div>' +
-      '<div class="pie__base"><span>© ' + new Date().getFullYear() + ' Finca Hotel Nuevo Futuro · Circasia, Quindío · RNT <span data-global="global.rnt">por registrar</span></span>' +
+      '<div class="pie__base"><span>© ' + new Date().getFullYear() + ' Finca Hotel Nuevo Futuro · Circasia, Quindío<span data-fila> · RNT <span data-global="global.rnt"></span></span></span>' +
       '<span style="max-width:620px">Rechazamos la explotación sexual comercial de niñas, niños y adolescentes (Ley 1336 de 2009).</span></div>' +
       '</div></footer>' +
       '<a class="wa-flotante nf-halo" data-wa href="/contacto.html" aria-label="Escribir por WhatsApp">' + icono('mensaje', 26) + '</a>';
@@ -104,8 +104,12 @@
     return 'https://wa.me/' + n + '?text=' + encodeURIComponent(texto || aj['global.mensaje_whatsapp'] || 'Hola, quiero información sobre la Finca Hotel Nuevo Futuro.');
   }
 
+  // Un dato vacío o de relleno ("Por definir") no se muestra: se oculta su fila completa ([data-fila]) o el elemento
+  var RELLENO = /^\s*(por (definir|confirmar|publicar|registrar)|pendiente)\.?\s*$/i;
+  function sinDato(t) { t = String(t == null ? '' : t); return !t.trim() || RELLENO.test(t); }
+  function ocultar(el) { (el.closest('[data-fila]') || el).hidden = true; }
   function aplicar(aj) {
-    document.querySelectorAll('[data-cms]').forEach(function (el) { var v = aj[el.getAttribute('data-cms')]; if (v != null && String(v).trim() !== '') el.innerHTML = U.formatear(v); });
+    document.querySelectorAll('[data-cms]').forEach(function (el) { var v = aj[el.getAttribute('data-cms')]; if (v != null && String(v).trim() !== '') el.innerHTML = U.formatear(v); if (sinDato(el.textContent)) ocultar(el); });
     document.querySelectorAll('[data-cms-img]').forEach(function (el) { var v = aj[el.getAttribute('data-cms-img')]; if (v) el.src = v; });
     document.querySelectorAll('[data-cms-lista]').forEach(function (el) {
       var v = aj[el.getAttribute('data-cms-lista')]; if (!v) return;
@@ -116,7 +120,7 @@
     aj['global.whatsapp_visible'] = wn ? '+' + wn.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})$/, '$1 $2 $3 $4') : '';
     document.querySelectorAll('[data-global]').forEach(function (el) {
       var v = aj[el.getAttribute('data-global')];
-      if (v) el.textContent = v; else if (!el.textContent.trim()) el.hidden = true;
+      if (!sinDato(v)) el.textContent = v; else ocultar(el);
     });
     document.querySelectorAll('[data-wa]').forEach(function (a) { a.href = waUrl(aj, a.getAttribute('data-wa-texto')); if (/^https/.test(a.href)) { a.target = '_blank'; a.rel = 'noopener'; } });
     document.querySelectorAll('[data-correo]').forEach(function (a) { if (aj['global.correo']) a.href = 'mailto:' + aj['global.correo']; });
@@ -131,5 +135,5 @@
     document.body.appendChild(t); setTimeout(function () { t.remove(); }, 4200);
   }
 
-  window.NFsitio = { pagina: pagina, ajustes: ajustesPromesa, waUrl: waUrl, icono: icono, observar: observar, toast: toast, aplicar: aplicar };
+  window.NFsitio = { pagina: pagina, ajustes: ajustesPromesa, waUrl: waUrl, icono: icono, observar: observar, toast: toast, aplicar: aplicar, sinDato: sinDato };
 })();
